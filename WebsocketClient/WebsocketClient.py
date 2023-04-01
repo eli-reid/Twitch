@@ -11,11 +11,16 @@ class WebsocketClient:
         self._address: str = address
         self._port: int = port
         self._url: str = f"{'wss' if ssl else 'ws'}://{self._address}:{self._port}"
-    
+        self.loop = asyncio.new_event_loop()
     def run(self):
-        loop = asyncio.new_event_loop()
-        loop.create_task(self._connect())
-        loop.run_forever()
+        print("client started")
+        self.loop.create_task(self._connect())
+        self.loop.run_forever()
+    
+    def stop(self):
+        if self.loop.is_running():
+            self.loop.stop()
+            
 
     async def connect(self) -> Coroutine:
         return self._connect  
@@ -28,18 +33,15 @@ class WebsocketClient:
                     self._consumerHandler(),
                     self._producerHandler()
                     )
+                await asyncio.Future()
             except websockets.ConnectionClosed:
                 print("CLOSED")
-                await self._connect()
-
                 
-
     async def _consumerHandler(self):
             async for message in self._connection:
                 await self._consumer(message)
                 await asyncio.sleep(0)
                 
-    
     async def _producerHandler(self):
         while True:
             message = await self._producer()

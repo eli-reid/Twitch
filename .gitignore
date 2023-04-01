@@ -1,1 +1,3 @@
-/secrets/**
+/secretkeys/**
+/.vscode/**
+__pycache__
