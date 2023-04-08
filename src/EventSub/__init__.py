@@ -1,0 +1,1 @@
+from .EventSubConnector import EventSubConnector as EventSub
