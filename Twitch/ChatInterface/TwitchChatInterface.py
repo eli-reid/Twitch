@@ -2,11 +2,11 @@ import queue
 import time
 from datetime import datetime
 import threading
-from ..EventHandler.EventHandler import EventHandler
-from .IrcController import IrcController 
-from .MessageHandler import *
-from .TokenBucket import TokenBucket
-from .Exceptions import InvalidLoginError
+from Twitch import _Events 
+from Twitch.ChatInterface.IrcController import IrcController
+from Twitch.ChatInterface.MessageHandler import *
+from Twitch.ChatInterface.TokenBucket import TokenBucket
+from Twitch.ChatInterface.Exceptions import InvalidLoginError, InvalidMessageError
 
 class TCI(object):
     """    
@@ -78,7 +78,7 @@ class TCI(object):
         self._sendTokens = TokenBucket() 
 
         # public properties
-        self.event: EventHandler = EventHandler
+        self.event: _Events = _Events
         self.COMMANDS: MessageHandler.COMMANDS = self._messageHandler.COMMANDS
         self.startWithThread = threading.Thread(target=self.run, daemon=True).start
         self.channels: dict[str, Channel] = {} 
