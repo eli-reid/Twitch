@@ -1,6 +1,6 @@
 import asyncio
-from OAuth.oauth import twitchOauth
-from secretkeys import apikeys
+from OAuth.Oauth import twitchOauth
+from ..secretkeys import apikeys
 
 async def main():
     oauth = twitchOauth(apikeys.CLIENT_ID,apikeys.CLIENT_SECRET, "user:edit:follows",redirectUrl=None)
