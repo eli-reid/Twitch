@@ -1,9 +1,9 @@
 import asyncio
-from OAuth.Oauth import twitchOauth
-from ..secretkeys import apikeys
+from Twitch.OAuth import Oauth
+from Twitch.secretkeys import apikeys
 
 async def main():
-    oauth = twitchOauth(apikeys.CLIENT_ID,apikeys.CLIENT_SECRET, "user:edit:follows",redirectUrl=None)
+    oauth = Oauth(apikeys.CLIENT_ID,apikeys.CLIENT_SECRET, "user:edit:follows",redirectUrl=None)
     while True:
         print("[TESTING OPTIONS]")
         print('(1) test oauth get tokenm with code')
@@ -20,10 +20,10 @@ async def main():
             print(f'Refresh Token: {tokenobj.refresh_token}')
             print(f'Scope: {tokenobj.scope}')
             token = tokenobj.access_token
-            print(f'Token is valid:{await twitchOauth.vaidateToken(token)}')
+            print(f'Token is valid:{await Oauth.vaidateToken(token)}')
         if option == '2':
             token = input('Please input token to validate:')
-            print(f'Token is valid:{await twitchOauth.vaidateToken(token)}')
+            print(f'Token is valid:{await Oauth.vaidateToken(token)}')
 
         if option == '3':
             token = input('Please input refresh token:')

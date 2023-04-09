@@ -1,2 +1,2 @@
-from PubSub.PubSubInterface import PubSubInterface as Subscribe
-import Topics 
+from Twitch.PubSub.PubSubInterface import PubSubInterface
+from Twitch.PubSub import Topics

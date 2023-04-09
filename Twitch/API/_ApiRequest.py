@@ -4,7 +4,7 @@ import aiohttp
 import json
 from aiohttp import ClientResponse, web
 
-from CallbackServer import CallbackServer
+from Twitch.CallbackServer import CallbackServer
 
 class APIRequest():
     def __init__(self, apiURL:str, returnURL:Optional[str]=None, returnPort: Optional[int]=None) -> None:

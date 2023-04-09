@@ -1,1 +1,1 @@
-import CallbackServer
+from Twitch.CallbackServer import CallbackServer
