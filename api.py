@@ -4,7 +4,7 @@ import aiohttp
 import json
 import webbrowser
 from aiohttp import web
-from 
+
 class TwitchAPI():
     def __init__(self) -> None:
         self._httpClientSession = aiohttp.ClientSession()
