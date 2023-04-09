@@ -1,5 +1,7 @@
 import socket
+import ssl
 import time
+import certifi
 
 class IrcController():
     """ IRC Conroller
@@ -13,14 +15,16 @@ class IrcController():
         :param pingwait: keep alive delay 
         :type ping: int
     """
-    def __init__(self, server: str, port: int, pingwait: int = 300)->None:
+    def __init__(self, server: str, port: int, SSL:bool = False, pingwait: int = 300)->None:
         # Populate values
         self._server: str = server
         self._port: int = port
+        self._SSL:bool = SSL
         self._pingWait: int = pingwait
         self._lastPing: time = time.time()
         self._connected: bool = False
-        self._socket: socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.isSSL:bool = False
+        self._socket: socket.socket | ssl.SSLSocket = None
         
     def connect(self)->None:
         """ IrcController.connect - Creates new socket & Opens connection to IRC server  
@@ -31,9 +35,15 @@ class IrcController():
         try:
             # Create new socket and connect
             self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            if self._SSL:
+                context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+                context.load_verify_locations(certifi.where())
+                context.post_handshake_auth = True
+                self._socket = context.wrap_socket(socket.socket(socket.AF_INET, socket.SOCK_STREAM), server_hostname=self._server)
+                self.isSSL = True
             self._socket.connect((self._server, self._port))
-            self._connected =True
-            print(f"Connected to {self._server}:{self._port}!")
+            self._connected = True
+
         except socket.error as error:
             self.disconnect(f"IRC error: {error}")
             
@@ -50,7 +60,7 @@ class IrcController():
         """
         self._connected = False
         self._socket.close()
-        print(f"IRC Disconnected! {reason}")
+        
         
 
     def send(self, data: str)->None:
@@ -64,9 +74,9 @@ class IrcController():
         """
         try:
             data = f"{data}\r\n" if not data.endswith("\r\n") else data
-            self._socket.sendall(data.encode())
+            self._socket.send(data.encode())
         except socket.error as error:
-            self.disconnect(error)
+            self.disconnect(f"send Error: {error}")
 
     def receive(self)->str or None:
         """ IrcController.receive - Receives all data from socket buffer 
@@ -76,7 +86,7 @@ class IrcController():
         """
         data: str = ""
         self._ping()
-        self._socket.setblocking(False)
+        self._socket.setblocking(True)
         try:
             # Should be ready to read
             data += self._socket.recv(4096).decode()
@@ -85,7 +95,7 @@ class IrcController():
         except BlockingIOError:
             self._socket.setblocking(True)
         except socket.error as error:
-            self.disconnect(error)
+            self.disconnect(f"Recieve Error: {error}")
         return data if len(data) > 0 else None 
 
     def isConnected(self)->bool:
@@ -107,7 +117,7 @@ class IrcController():
                 self._lastPing = time.time()
                 self.send("PING")
         except socket.error as error:
-            self.disconnect(error)
+            self.disconnect(f" PING Error: {error}")
 
     def _pong(self, data: str)->None:
         """ IrcController._pong - replies to server ping 

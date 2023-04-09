@@ -1,1 +1,1 @@
-from .EventSubConnector import EventSubConnector as EventSub
+from .EventSubInterface import EventSubInterface

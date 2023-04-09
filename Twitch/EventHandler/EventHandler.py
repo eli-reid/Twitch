@@ -3,7 +3,7 @@
 
     .. codeauthor:: Eli Reid <EliR@EliReid.com>
 """
-import types
+from typing import Callable
 class EventHandler:
     """
     Event Handler
@@ -43,7 +43,7 @@ class EventHandler:
                 func(sender, obj)
        
     @classmethod
-    def on(cls, event: str, func: types.FunctionType or types.MethodType)->None:
+    def on(cls, event: str, func: Callable)->None:
         """ EventHandler.on - sets callback functions to event
 
             :param event: name of event
@@ -60,7 +60,7 @@ class EventHandler:
         """
         if not isinstance(event, str):
             raise TypeError("event should of type str ")
-        elif not isinstance(func, (types.MethodType, types.FunctionType)):
+        elif not isinstance(func, Callable):
             raise TypeError("Requires callback function pointer ex: myCallback(sender, obj)")
         else:
             cls._register(event)
@@ -86,7 +86,7 @@ class EventHandler:
                 del cls._events[event]
          
     @classmethod
-    def removeFunc(cls, event: str, func: types.FunctionType or types.MethodType)->None:
+    def removeFunc(cls, event: str, func: Callable)->None:
         """ EventHandler.removeFunc - Removes callback fucntion from event
 
             :param event: name of event
@@ -104,7 +104,7 @@ class EventHandler:
         """
         if not isinstance(event, str):
             raise TypeError("event should of type str ")
-        elif not isinstance(func, (types.MethodType, types.FunctionType)):
+        elif not isinstance(func, Callable):
             raise TypeError("Requires callback function pointer ex: myCallback(sender, obj)")
         else:
             cls._events[event].remove(func)
@@ -179,7 +179,7 @@ class _event():
         #: Setup list for functions
         self._callbacks: list = []
 
-    def add(self, func: types.FunctionType or types.MethodType)->None:
+    def add(self, func: Callable)->None:
         """ _event.add - Append function to list of functions for event
 
             :param func: A callback function pointer
@@ -190,13 +190,13 @@ class _event():
 
             :raise: TypeError if func in not function type
         """
-        if not isinstance(func, (types.MethodType, types.FunctionType)):
+        if not isinstance(func, Callable):
             raise TypeError("Requires callback function pointer ex: myCallback(sender, obj)")
         else:
             if self._callbacks.count(func) == 0:
                 self._callbacks.append(func)
             
-    def remove(self, func: types.FunctionType or types.MethodType)->None:
+    def remove(self, func: Callable)->None:
         """ _event.remove - Remove callback function from event
 
             :param func: A callback function pointer
@@ -208,7 +208,7 @@ class _event():
             :raise: TypeError if func in not function type
         """
 
-        if not isinstance(func, (types.MethodType, types.FunctionType)):
+        if not isinstance(func, Callable):
             raise TypeError("Requires callback function pointer ex: myCallback(sender, obj)")
         else:
             #: Verify list has function before trying to remove function

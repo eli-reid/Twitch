@@ -1,9 +1,8 @@
 from aiohttp import ClientResponse, http_exceptions
-
-from API.Exceptions import TwitchApiBadRequstException, TwitchApiNotFoundException, TwitchApiTooManyRequestsException, TwitchApiUnauthorizedException
-from .Resources.Utils import pagenation, dateRange, RequestBaseClass, ResponseBaseClass
-from .Resources import Analytics, Ads, Bits
-from .ApiRequest import APIRequest
+from Twitch.API.Exceptions import TwitchApiBadRequstException, TwitchApiNotFoundException, TwitchApiTooManyRequestsException, TwitchApiUnauthorizedException
+from Twitch.API.Resources.Utils import pagenation, dateRange, RequestBaseClass, ResponseBaseClass
+from Twitch.API.Resources import Analytics, Ads, Bits
+from Twitch.API._ApiRequest import APIRequest
 from typing import Callable, Optional
 
 
@@ -52,7 +51,7 @@ class twitchAPI:
             exception = TwitchApiTooManyRequestsException(await response.json())
         return exception    
 
-    async def twitchAPICall(self, request: RequestBaseClass, response: ResponseBaseClass, **kwargs) -> None:
+    async def _twitchAPICall(self, request: RequestBaseClass, response: ResponseBaseClass, **kwargs) -> None:
         """
         Raises APIReqestFailedException(APIresponse)
         """
@@ -73,35 +72,35 @@ class twitchAPI:
     async def StartCommercial(self) -> Ads.StartCommercialRepsonse:
         request = Ads.StartCommercialRequest()
         response = Ads.StartCommercialRepsonse()
-        await self.twitchAPICall(request, response)
+        await self._twitchAPICall(request, response)
         return response
 
     async def GetExtensionAnalytics(self) -> Analytics.ExtensionAnalyticsResponse: 
         request = Analytics.ExtensionAnalyticsRequest()       
         response = Analytics.ExtensionAnalyticsResponse()
-        await self.twitchAPICall(request, response)
+        await self._twitchAPICall(request, response)
         return response
     
     async def GetGameAnalytics(self, game_id: str, date_range: dateRange) -> Analytics.GameAnalyticsResponse:
         request = Analytics.GameAnalyticsRequest(game_id, date_range)
         response = Analytics.GameAnalyticsResponse()
-        await self.twitchAPICall(request, response)
+        await self._twitchAPICall(request, response)
         return response
 
     async def GetBitsLeaderboard(self, count:Optional[int] = 10, period: Optional[str] = "all", started_at: Optional[str] = "", user_id: Optional[str]= "") -> Bits.BitsLeaderboardResponse:
         request = Bits.BitsLeaderboardRequest(count, period, started_at, user_id)
         response = Bits.BitsLeaderboardResponse()
-        await self.twitchAPICall(request, response)
+        await self._twitchAPICall(request, response)
         return response
 
     async def GetCheermotes(self, broadcaster_id: Optional[str] = None) -> Bits.CheermotesResponse:
         request = Bits.CheermotesRequest(broadcaster_id)
         response = Bits.CheermotesResponse()
-        await self.twitchAPICall(request, response)
+        await self._twitchAPICall(request, response)
         return response
 
     async def GetExtensionTransactions(self, extension_id:str, id: Optional[str]=None, first: Optional[int]=None, after: Optional[str]=None) -> Bits.ExtensionTransactionsResponse:
         request = Bits.ExtensionTransactionsRequest(extension_id, id, first, after)
         response = Bits.ExtensionTransactionsResponse()
-        await self.twitchAPICall(request, response)
+        await self._twitchAPICall(request, response)
         return response

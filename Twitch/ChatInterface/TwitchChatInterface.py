@@ -1,8 +1,8 @@
 import queue
 import time
-from datetime import datetime
 import threading
-from Twitch import _Events 
+from typing import Callable
+from Twitch.EventHandler.EventHandler import EventHandler as _Events
 from Twitch.ChatInterface.IrcController import IrcController
 from Twitch.ChatInterface.MessageHandler import *
 from Twitch.ChatInterface.TokenBucket import TokenBucket
@@ -72,7 +72,7 @@ class TCI(object):
         self._user: str = settings.get('user')
         self._password: str = settings.get('password')
         self._caprequest: str = settings.get('caprequest')
-        self._server = IrcController(settings.get("server"),settings.get("port"))
+        self._server = IrcController(settings.get("server"), settings.get("port"), SSL=settings.get("ssl", False))
         self._messageHandler: MessageHandler = MessageHandler()
         self._sendQ: queue.SimpleQueue = queue.SimpleQueue()
         self._sendTokens = TokenBucket() 
@@ -130,8 +130,8 @@ class TCI(object):
     
     def connect(self):
         if not self._server.isConnected():
-            self._login()
             self._server.connect()
+            self._login()
 
     def _getMsgs(self)->None:
         """
@@ -139,7 +139,6 @@ class TCI(object):
         """
         data=""
         while True:
-            time.sleep(.1)
             if self._server.isConnected():
                 try:
                     data = self._server.receive()
@@ -190,7 +189,6 @@ class TCI(object):
         :param message: irc message
         :type message: Message
         """
-        print(f"Currently in {len(self._channels)} rooms")
         self.isConnected = True
         if self._channels is not None:
             self.join(self._channels) 
@@ -539,7 +537,7 @@ class TCI(object):
         self.event.on(self.COMMANDS.RECEIVED, func)
 
 
-    def onConnected(self, func):
+    def onConnected(self, func: Callable):
         """
         onConnected[summary]
         
@@ -657,3 +655,6 @@ class TCI(object):
         :type func: [type]
         """
         self.event.on(self.COMMANDS.ROOMSTATE.SLOW_OFF, func)
+
+    def onJoin(self, func: Callable):
+        self.event.on(self.COMMANDS.JOIN, func)

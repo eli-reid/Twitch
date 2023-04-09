@@ -1,5 +1,5 @@
 from Twitch import API as Api
+from Twitch import ChatInterface as Chat
+from Twitch import OAuth
+from Twitch import EventSub
 from Twitch import PubSub
-from Twitch.ChatInterface import Chat
-from Twitch.EventHandler import EventHandler as _Events
-from Twitch.ChatInterface import Chat
