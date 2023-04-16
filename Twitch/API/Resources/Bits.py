@@ -1,3 +1,8 @@
+from datetime import datetime
+from API.Resources import Utils
+from API.Resources import Scope 
+from typing import Optional
+
 """
 Get Bits Leaderboard
 
@@ -33,19 +38,22 @@ response
   "total": 2
 }
 """
-from . import Utils
-from . import Scope 
-from typing import Optional
+
 class BitsLeaderboardRequest(Utils.RequestBaseClass):
-    requestType = "GET"
+    requestType = Utils.HTTPMethod.GET
     scope = Scope.Bits.Read
-    requirements = ["user access token"]
+    authorization = [Utils.AuthRequired.USER]
     endPoint = "/bits/leaderboard"
-    def __init__(self, count: Optional[int]=10, period: Optional[str]="all", 
-                 started_at: Optional[str]=None, user_id: Optional[str]=None) -> None:
+
+    def __init__(self, count: Optional[int]=None, 
+                 period: Optional[str]=None, 
+                 started_at: Optional[datetime]=None, 
+                 user_id: Optional[str]=None
+                ) -> None:
+        
         self.count: int = count
         self.period: str = period
-        self.started_at: str = started_at
+        self.started_at: str = started_at.isoformat("T") if isinstance(started_at, datetime) else started_at
         self.user_id: str = user_id
         super().__init__()
 
@@ -57,7 +65,7 @@ class BitsLeaderboardItem:
         self.rank: int = -1
         self.score: int = -1
 
-class BitsLeaderboardResponse(Utils.DateRangeMixin,Utils.ResponseBaseClass):
+class BitsLeaderboardResponse(Utils.DateRangeMixin, Utils.ResponseBaseClass):
     def __init__(self) -> None:
         super().__init__(BitsLeaderboardItem)
    
@@ -132,12 +140,15 @@ response:
 }
 """
 class CheermotesRequest(Utils.RequestBaseClass):
-    requestType = "GET"
+    requestType = Utils.HTTPMethod.GET
     scope = None
-    requirements = ["app access token","user access token"]
+    authorization = Utils.AuthRequired.CLIENT 
     endPoint = "/bits/cheermotes"
-    def __init__(self,broadcaster_id:Optional[str] = None) -> None:
-        self.broadcaster_id: Optional[str] = broadcaster_id
+    def __init__(self,broadcaster_id:Optional[str] = None, userAuth: bool=False) -> None:
+        if userAuth:
+            self.authorization = Utils.AuthRequired.USER
+
+        self.broadcaster_id = broadcaster_id
         super().__init__()
 
 class ImageItem:
@@ -253,12 +264,12 @@ response
 """
 
 class ExtensionTransactionsRequest(Utils.RequestBaseClass):
-    requestType = "GET"
+    requestType = Utils.HTTPMethod.GET
     scope = None
-    requirements = ["app access token"]
+    authorization = Utils.AuthRequired.CLIENT
     endPoint = "/extensions/transactions"
 
-    def __init__(self,extension_id: str, id: Optional[str]=None, first: Optional[int]=None, after: Optional[str] = None) -> None:
+    def __init__(self, extension_id: str, id: Optional[str]=None, first: Optional[int]=None, after: Optional[str] = None) -> None:
         self.extension_id: str = extension_id
         self.id: Optional[str] = id 
         self.first: Optional[int] = first

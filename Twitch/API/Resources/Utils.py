@@ -1,5 +1,13 @@
 from dataclasses import dataclass, field
-from datetime import datetime
+from enum import Enum
+from http import HTTPMethod, HTTPStatus
+from API.Resources import Scope
+
+class AuthRequired(Enum):
+    USER = "user access token"
+    CLIENT = "app access token"
+
+
 @dataclass
 class pagenation:
     cursor: str = field(default="")
@@ -33,13 +41,14 @@ class PagenationMixin:
         self._paganation.cursor = page.get("cursor")
         
 class RequestBaseClass:
-      requestType: str
-      scope: str
-      requirements: str 
-      endPoint: str
+    requestType: HTTPMethod
+    scope: str
+    authorization: AuthRequired  
+    endPoint: str
+
 
 class ResponseBaseClass:
-    dataitemtype =None
+    dataitemtype = None
     def __init__(self, dataItem:object) -> None:
         self.raw: str = None
         self._dataItem = dataItem

@@ -2,7 +2,7 @@ import asyncio
 from typing import Awaitable, Coroutine, Optional
 import websockets
 from websockets.client import WebSocketClientProtocol
-from 
+from Twitch.EventHandler import EventHandler
 from enum import Enum
 class WebsocketClient:
     TIMERDEFAULT =.1
@@ -14,7 +14,7 @@ class WebsocketClient:
         MESSAGE = "5"
 
     def __init__(self, url: str, consumer: Awaitable, producer: Awaitable, autoReconnect:bool = True, maxRetries: Optional[int] = -1) -> None:
-        self.events = EventHandler
+        self.events: EventHandler = EventHandler
         self._connection: WebSocketClientProtocol = None
         self._consumer: Awaitable = consumer
         self._producer: Awaitable = producer

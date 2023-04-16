@@ -1,3 +1,8 @@
+from API.Resources import Utils
+from API.Resources import Scope 
+from typing import Optional
+
+
 """
 Get Channel Information
 
@@ -26,21 +31,34 @@ response
 }
 
 """
-from . import Utils
-from . import Scope 
-from typing import Optional
+
 
 class ChannelInformationRequest(Utils.RequestBaseClass):
-    requestType = "GET"
+    requestType = Utils.HTTPMethod.GET
     scope = None
-    requirements = ["app access token","user access token"]
+    authorization = Utils.AuthRequired.CLIENT
     endPoint = "/channels"
-    def __init__(self, broadcaster_ids: list[str]) -> None:
+    def __init__(self, broadcaster_ids: list[str], userAuth: bool=False) -> None:
+        if userAuth:
+            self.authorization = Utils.AuthRequired.USER
+  
         self.broadcaster_ids: list[str] = broadcaster_ids
         super().__init__()
 
+class ChannelInformationItem:
+    broadcaster_id: str
+    broadcaster_login: str
+    broadcaster_name: str
+    broadcaster_language: str
+    game_name: str
+    game_id: str
+    title: str
+    delay: int
+    tags: list
 
-
+class ChannelInformationResponse(Utils.ResponseBaseClass):
+   def __init__(self) -> None:
+       super().__init__(ChannelInformationItem) 
 
 """
 Modify Channel Information
@@ -61,6 +79,32 @@ response
 500 Internal server error
 
 """
+
+class ModifyChannelInformationRequest(Utils.RequestBaseClass):
+    requestType = Utils.HTTPMethod.PATCH
+    scope = Scope.Channel.Manage.Broadcast
+    authorization = Utils.AuthRequired.USER
+    endPoint = "/channels"
+
+    def __init__(self,
+                 broadcaster_id: str,
+                 game_id:Optional[str] =None,
+                 broadcaster_language:Optional[str]=None,
+                 title:Optional[str]=None,
+                 delay:Optional[int]=None,
+                 tags:Optional[list[str]]=None
+                 ) -> None:
+        self.broadcaster_id = broadcaster_id
+        self.game_id = game_id
+        self.broadcaster_language = broadcaster_language
+        self.title = title
+        self.delay = delay
+        self.tags = tags
+        super().__init__()
+
+class ModifyChannelInformationResponse(Utils.ResponseBaseClass):
+    pass
+
 
 """
 Get Channel Editors
@@ -90,6 +134,24 @@ response:
 }
 
 """
+class ChannelEditorsRequest(Utils.RequestBaseClass):
+    requestType = Utils.HTTPMethod.GET
+    scope = Scope.Channel.Read.Editors
+    authorization = Utils.AuthRequired.USER
+    endPoint = "/channels/editors"
+
+    def __init__(self, broadcaster_id: str) -> None:
+        self.broadcaster_id = broadcaster_id
+        super().__init__()
+class ChannelEditorsItem:
+    def __init__(self) -> None:
+         self.user_id:str
+         self.user_name: str
+         self.created_at: str
+
+class ChannelEditorsResponse(Utils.ResponseBaseClass):
+    def __init__(self) -> None:
+        super().__init__(ChannelEditorsItem)
 
 """
 Get Followed Channels - BETA
@@ -190,3 +252,4 @@ response: - The data field is an empty array, which means the user doesn't follo
   "pagination": {}
 }
 """
+
