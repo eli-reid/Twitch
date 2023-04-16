@@ -6,3 +6,9 @@ class TwitchApiNotFoundException(Exception):
      pass
 class TwitchApiTooManyRequestsException(Exception):
      pass
+
+class TwitchApiInvalidRequestType(Exception):
+     pass
+
+class TwitchApiIvalidUserScope(Exception):
+     pass

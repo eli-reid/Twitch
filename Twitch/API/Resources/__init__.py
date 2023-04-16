@@ -1,3 +1,4 @@
 from .Ads import StartCommercialRepsonse
 from .Analytics import GameAnalyticsResponse, ExtensionAnalyticsResponse
 from .Bits import ExtensionTransactionsResponse, CheermotesResponse, BitsLeaderboardResponse
+from API.Resources.Channels import ModifyChannelInformationRequest, ModifyChannelInformationResponse, ChannelInformationRequest, ChannelInformationResponse

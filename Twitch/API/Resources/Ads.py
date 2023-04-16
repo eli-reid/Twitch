@@ -1,3 +1,6 @@
+from API.Resources import Utils
+from API.Resources import Scope 
+
 """
 Start Commercial
 
@@ -25,24 +28,23 @@ response:
 }
 
 """
-from dataclasses import dataclass, field
-from . import Scope
-from .Utils import RequestBaseClass, ResponseBaseClass
 
-class StartCommercialRequest(RequestBaseClass):
-    requestType = "POST"
+class StartCommercialRequest(Utils.RequestBaseClass):
+    requestType = Utils.HTTPMethod.POST
     scope = Scope.Channel.Edit.Commercial
-    reqiurements = ["user access token"]
+    authorization = Utils.AuthRequired.USER
     endPoint = "/channels/commercial"
-    broadcaster_id:str = ""
-    length:int = -1
+    def __init__(self, broadcaster_id: str, length: int ) -> None:
+        self.broadcaster_id: str = broadcaster_id
+        self.length:int = length
+        super().__init__()
 
-class StartCommercialItem():
+class StartCommercialItem:
     length: int 
     message: str
     retry_after: int 
 
-class StartCommercialRepsonse(ResponseBaseClass):
+class StartCommercialRepsonse(Utils.ResponseBaseClass):
     def __init__(self) -> None:
         super().__init__(StartCommercialItem)
     
