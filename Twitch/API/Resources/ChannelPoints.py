@@ -1,6 +1,4 @@
-from API.Resources import Utils
-from API.Resources import Scope 
-from typing import Optional
+from __imports import *
 
 """
     Create Custom Rewards
@@ -63,3 +61,61 @@ class CreateCustomRewardsRequest(Utils.RequestBaseClass):
 
     def __init__(self, title: str,) -> None:
         super().__init__()
+
+class CreateCustomRewardsResponse(Utils.ResponseBaseClass):
+        def __init__(self) -> None:
+            super().__init__()
+
+class DeleteCustomRewardRequest(Utils.RequestBaseClass):
+        requestType = Utils.RequestMethods.POST
+        scope = Scope.Channel.Manage.Redemptions
+        authorization = Utils.AuthRequired.USER
+        endPoint ="//channel_points//custom_rewards"
+
+class DeleteCustomRewardResponse(Utils.ResponseBaseClass):
+        def __init__(self) -> None:
+            super().__init__()
+
+class GetCustomRewardRequest(Utils.RequestBaseClass):
+        requestType = Utils.RequestMethods.POST
+        scope = Scope.Channel.Manage.Redemptions
+        authorization = Utils.AuthRequired.USER
+        endPoint ="//channel_points//custom_rewards"
+    
+
+class GetCustomRewardResponse(Utils.ResponseBaseClass):
+        def __init__(self) -> None:
+            super().__init__()
+
+class GetCustomRewardRedemptionRequest(Utils.RequestBaseClass):
+        requestType = Utils.RequestMethods.POST
+        scope = Scope.Channel.Manage.Redemptions
+        authorization = Utils.AuthRequired.USER
+        endPoint ="//channel_points//custom_rewards"
+    
+    
+class GetCustomRewardRedemptionResponse(Utils.ResponseBaseClass):
+        def __init__(self) -> None:
+            super().__init__()
+
+class UpdateCustomRewardRequest(Utils.RequestBaseClass):
+        requestType = Utils.RequestMethods.POST
+        scope = Scope.Channel.Manage.Redemptions
+        authorization = Utils.AuthRequired.USER
+        endPoint ="//channel_points//custom_rewards"
+    
+
+class UpdateCustomRewardResponse(Utils.ResponseBaseClass):
+        def __init__(self) -> None:
+            super().__init__()
+
+class UpdateRedemptionStatusRequest(Utils.RequestBaseClass):
+        requestType = Utils.RequestMethods.POST
+        scope = Scope.Channel.Manage.Redemptions
+        authorization = Utils.AuthRequired.USER
+        endPoint ="//channel_points//custom_rewards"
+    
+
+class UpdateRedemptionStatusResponse(Utils.ResponseBaseClass):
+        def __init__(self) -> None:
+            super().__init__()

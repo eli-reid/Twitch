@@ -1,101 +1,132 @@
 from __imports import *
-
-class GetUsersRequest(Utils.RequestBaseClass):
+class GetChattersRequest(Utils.RequestBaseClass):
         requestType = Utils.RequestMethods.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
     
 
-class GetUsersResponse(Utils.ResponseBaseClass):
+class GetChattersResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
             super().__init__()
 
-class UpdateUserRequest(Utils.RequestBaseClass):
+class GetChannelEmotesRequest(Utils.RequestBaseClass):
         requestType = Utils.RequestMethods.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
     
 
-class UpdateUserResponse(Utils.ResponseBaseClass):
+class GetChannelEmotesResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
             super().__init__()
 
-class GetUsersFollowsRequest(Utils.RequestBaseClass):
+class GetGlobalEmotesRequest(Utils.RequestBaseClass):
         requestType = Utils.RequestMethods.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
     
 
-class GetUsersFollowsResponse(Utils.ResponseBaseClass):
+class GetGlobalEmotesResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
             super().__init__()
 
-class GetUserBlockListRequest(Utils.RequestBaseClass):
+class GetEmoteSetsRequest(Utils.RequestBaseClass):
         requestType = Utils.RequestMethods.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
     
 
-class GetUserBlockListResponse(Utils.ResponseBaseClass):
+class GetEmoteSetsResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
             super().__init__()
 
-class BlockUserRequest(Utils.RequestBaseClass):
+class GetChannelChatBadgesRequest(Utils.RequestBaseClass):
         requestType = Utils.RequestMethods.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
     
 
-class BlockUserResponse(Utils.ResponseBaseClass):
+class GetChannelChatBadgesResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
             super().__init__()
 
-class UnblockUserRequest(Utils.RequestBaseClass):
+class GetGlobalChatBadgesRequest(Utils.RequestBaseClass):
         requestType = Utils.RequestMethods.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
     
 
-class UnblockUserResponse(Utils.ResponseBaseClass):
+class GetGlobalChatBadgesResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
             super().__init__()
 
-class GetUserExtensionsRequest(Utils.RequestBaseClass):
+class GetChatSettingsRequest(Utils.RequestBaseClass):
         requestType = Utils.RequestMethods.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
     
 
-class GetUserExtensionsResponse(Utils.ResponseBaseClass):
+class GetChatSettingsResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
             super().__init__()
 
-class GetUserActiveExtensionsRequest(Utils.RequestBaseClass):
+class UpdateChatSettingsRequest(Utils.RequestBaseClass):
         requestType = Utils.RequestMethods.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
     
 
-class GetUserActiveExtensionsResponse(Utils.ResponseBaseClass):
+class UpdateChatSettingsResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
             super().__init__()
 
-class UpdateUserExtensionsRequest(Utils.RequestBaseClass):
+class SendChatAnnouncementRequest(Utils.RequestBaseClass):
         requestType = Utils.RequestMethods.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
     
 
-class UpdateUserExtensionsResponse(Utils.ResponseBaseClass):
+class SendChatAnnouncementResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
             super().__init__()
 
+class SendaShoutoutRequest(Utils.RequestBaseClass):
+        requestType = Utils.RequestMethods.POST
+        scope = Scope.Channel.Manage.Redemptions
+        authorization = Utils.AuthRequired.USER
+        endPoint ="//channel_points//custom_rewards"
+    
+
+class SendaShoutoutResponse(Utils.ResponseBaseClass):
+        def __init__(self) -> None:
+            super().__init__()
+
+class GetUserChatColorRequest(Utils.RequestBaseClass):
+        requestType = Utils.RequestMethods.POST
+        scope = Scope.Channel.Manage.Redemptions
+        authorization = Utils.AuthRequired.USER
+        endPoint ="//channel_points//custom_rewards"
+    
+
+class GetUserChatColorResponse(Utils.ResponseBaseClass):
+        def __init__(self) -> None:
+            super().__init__()
+
+class UpdateUserChatColorRequest(Utils.RequestBaseClass):
+        requestType = Utils.RequestMethods.POST
+        scope = Scope.Channel.Manage.Redemptions
+        authorization = Utils.AuthRequired.USER
+        endPoint ="//channel_points//custom_rewards"
+    
+
+class UpdateUserChatColorResponse(Utils.ResponseBaseClass):
+        def __init__(self) -> None:
+            super().__init__()

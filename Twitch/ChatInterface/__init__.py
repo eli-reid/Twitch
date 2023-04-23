@@ -1,3 +1,2 @@
-from .TwitchChatInterface import TCI as ChatInerface
-from .MessageHandler import Message as MessageType
-__all__ = []
+from ChatInterface.TwitchChatInterface import  TCI as Chat
+from ChatInterface.MessageHandler import Message as MessageType

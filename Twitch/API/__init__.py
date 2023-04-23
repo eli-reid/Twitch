@@ -1,3 +1,3 @@
-from .TwitchAPI import twitchAPI as Requests
-from . import Resources as responseTypes
-from . import Exceptions
+from API.TwitchAPI import twitchAPI as Requests
+from API.Resources import ResponseTypes
+from API import Exceptions

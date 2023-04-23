@@ -1,2 +1,2 @@
-from .Oauth import twitchOauth as Oauth
-from . import Exceptions
+from OAuth.Oauth import twitchOauth as Oauth
+from OAuth import Exceptions

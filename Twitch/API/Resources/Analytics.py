@@ -1,8 +1,4 @@
-from datetime import datetime
-from API.Resources import Utils
-from API.Resources import Scope 
-from typing import Optional
-
+from __imports import *
 """
 Get Extension Analytics
 
@@ -55,16 +51,15 @@ class ExtensionAnalyticsRequest(Utils.RequestBaseClass):
         self.first = first
         self.after = after 
         super().__init__()
-
+@dataclass
 class ExtensionAnalyticsItem(Utils.DateRangeMixin):
-    def __init__(self) -> None:
-        self.extension_id:str
-        self.URL:str
-        self.type:str
+    extension_id:str
+    URL:str
+    type:str
 
 class ExtensionAnalyticsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
     def __init__(self) -> None:
-        super().__init__()
+        super().__init__(ExtensionAnalyticsItem)
 
 """
 Get Game Analytics
