@@ -1,7 +1,4 @@
-from datetime import datetime
-from API.Resources import Utils
-from API.Resources import Scope 
-from typing import Optional
+from __imports import *
 
 """
 Get Bits Leaderboard
@@ -42,7 +39,7 @@ response
 class BitsLeaderboardRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = Scope.Bits.Read
-    authorization = [Utils.AuthRequired.USER]
+    authorization = Utils.AuthRequired.USER
     endPoint = "/bits/leaderboard"
 
     def __init__(self, count: Optional[int]=None, 

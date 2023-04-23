@@ -1,0 +1,1279 @@
+<table>
+			<thead>
+				<tr>
+					
+						<th>Resource</th>
+					
+					<th>Endpoint</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+					
+						<tr>
+							
+								<td>Ads</td>
+							
+							<td><a href="#start-commercial">Start Commercial</a></td>
+							<td><p>Starts a commercial on the specified channel.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Analytics</td>
+							
+							<td><a href="#get-extension-analytics">Get Extension Analytics</a></td>
+							<td><p>Gets an analytics report for one or more extensions.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Analytics</td>
+							
+							<td><a href="#get-game-analytics">Get Game Analytics</a></td>
+							<td><p>Gets an analytics report for one or more games.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Bits</td>
+							
+							<td><a href="#get-bits-leaderboard">Get Bits Leaderboard</a></td>
+							<td><p>Gets the Bits leaderboard for the authenticated broadcaster.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Bits</td>
+							
+							<td><a href="#get-cheermotes">Get Cheermotes</a></td>
+							<td><p>Gets a list of Cheermotes that users can use to cheer Bits.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Bits</td>
+							
+							<td><a href="#get-extension-transactions">Get Extension Transactions</a></td>
+							<td><p>Gets an extension’s list of transactions.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channels</td>
+							
+							<td><a href="#get-channel-information">Get Channel Information</a></td>
+							<td><p>Gets information about one or more channels.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channels</td>
+							
+							<td><a href="#modify-channel-information">Modify Channel Information</a></td>
+							<td><p>Updates a channel’s properties.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channels</td>
+							
+							<td><a href="#get-channel-editors">Get Channel Editors</a></td>
+							<td><p>Gets the broadcaster’s list editors.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channels</td>
+							
+							<td><a href="#get-followed-channels">Get Followed Channels</a></td>
+							<td><p>Gets a list of broadcasters that the specified user follows. You can also use this endpoint to see whether a user follows a specific broadcaster.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channels</td>
+							
+							<td><a href="#get-channel-followers">Get Channel Followers</a></td>
+							<td><p>Gets a list of users that follow the specified broadcaster. You can also use this endpoint to see whether a specific user follows the broadcaster.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channel Points</td>
+							
+							<td><a href="#create-custom-rewards">Create Custom Rewards</a></td>
+							<td><p>Creates a Custom Reward in the broadcaster’s channel.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channel Points</td>
+							
+							<td><a href="#delete-custom-reward">Delete Custom Reward</a></td>
+							<td><p>Deletes a custom reward that the broadcaster created.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channel Points</td>
+							
+							<td><a href="#get-custom-reward">Get Custom Reward</a></td>
+							<td><p>Gets a list of custom rewards that the specified broadcaster created.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channel Points</td>
+							
+							<td><a href="#get-custom-reward-redemption">Get Custom Reward Redemption</a></td>
+							<td><p>Gets a list of redemptions for a custom reward.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channel Points</td>
+							
+							<td><a href="#update-custom-reward">Update Custom Reward</a></td>
+							<td><p>Updates a custom reward.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Channel Points</td>
+							
+							<td><a href="#update-redemption-status">Update Redemption Status</a></td>
+							<td><p>Updates a redemption’s status.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Charity</td>
+							
+							<td><a href="#get-charity-campaign">Get Charity Campaign</a></td>
+							<td><p>Gets information about the broadcaster’s active charity campaign.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Charity</td>
+							
+							<td><a href="#get-charity-campaign-donations">Get Charity Campaign Donations</a></td>
+							<td><p>Gets the list of donations that users have made to the broadcaster’s active charity campaign.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#get-chatters">Get Chatters</a></td>
+							<td><p>Gets the list of users that are connected to the broadcaster’s chat session.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#get-channel-emotes">Get Channel Emotes</a></td>
+							<td><p>Gets the broadcaster’s list of custom emotes.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#get-global-emotes">Get Global Emotes</a></td>
+							<td><p>Gets all global emotes.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#get-emote-sets">Get Emote Sets</a></td>
+							<td><p>Gets emotes for one or more specified emote sets.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#get-channel-chat-badges">Get Channel Chat Badges</a></td>
+							<td><p>Gets the broadcaster’s list of custom chat badges.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#get-global-chat-badges">Get Global Chat Badges</a></td>
+							<td><p>Gets Twitch’s list of chat badges.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#get-chat-settings">Get Chat Settings</a></td>
+							<td><p>Gets the broadcaster’s chat settings.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#update-chat-settings">Update Chat Settings</a></td>
+							<td><p>Updates the broadcaster’s chat settings.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#send-chat-announcement">Send Chat Announcement</a></td>
+							<td><p>Sends an announcement to the broadcaster’s chat room.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#send-a-shoutout">Send a Shoutout</a></td>
+							<td><p>Sends a Shoutout to the specified broadcaster.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#get-user-chat-color">Get User Chat Color</a></td>
+							<td><p>Gets the color used for the user’s name in chat.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Chat</td>
+							
+							<td><a href="#update-user-chat-color">Update User Chat Color</a></td>
+							<td><p>Updates the color used for the user’s name in chat.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Clips</td>
+							
+							<td><a href="#create-clip">Create Clip</a></td>
+							<td><p>Creates a clip from the broadcaster’s stream.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Clips</td>
+							
+							<td><a href="#get-clips">Get Clips</a></td>
+							<td><p>Gets one or more video clips.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Entitlements</td>
+							
+							<td><a href="#get-drops-entitlements">Get Drops Entitlements</a></td>
+							<td><p>Gets an organization’s list of entitlements that have been granted to a game, a user, or both.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Entitlements</td>
+							
+							<td><a href="#update-drops-entitlements">Update Drops Entitlements</a></td>
+							<td><p>Updates the Drop entitlement’s fulfillment status.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#get-extension-configuration-segment">Get Extension Configuration Segment</a></td>
+							<td><p>Gets the specified configuration segment from the specified extension.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#set-extension-configuration-segment">Set Extension Configuration Segment</a></td>
+							<td><p>Updates a configuration segment.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#set-extension-required-configuration">Set Extension Required Configuration</a></td>
+							<td><p>Updates the extension’s required_configuration string.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#send-extension-pubsub-message">Send Extension PubSub Message</a></td>
+							<td><p>Sends a message to one or more viewers.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#get-extension-live-channels">Get Extension Live Channels</a></td>
+							<td><p>Gets a list of broadcasters that are streaming live and have installed or activated the extension.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#get-extension-secrets">Get Extension Secrets</a></td>
+							<td><p>Gets an extension’s list of shared secrets.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#create-extension-secret">Create Extension Secret</a></td>
+							<td><p>Creates a shared secret used to sign and verify JWT tokens.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#send-extension-chat-message">Send Extension Chat Message</a></td>
+							<td><p>Sends a message to the specified broadcaster’s chat room.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#get-extensions">Get Extensions</a></td>
+							<td><p>Gets information about an extension.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#get-released-extensions">Get Released Extensions</a></td>
+							<td><p>Gets information about a released extension.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#get-extension-bits-products">Get Extension Bits Products</a></td>
+							<td><p>Gets the list of Bits products that belongs to the extension.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Extensions</td>
+							
+							<td><a href="#update-extension-bits-product">Update Extension Bits Product</a></td>
+							<td><p>Adds or updates a Bits product that the extension created.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>EventSub</td>
+							
+							<td><a href="#create-eventsub-subscription">Create EventSub Subscription</a></td>
+							<td><p>Creates an EventSub subscription.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>EventSub</td>
+							
+							<td><a href="#delete-eventsub-subscription">Delete EventSub Subscription</a></td>
+							<td><p>Deletes an EventSub subscription.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>EventSub</td>
+							
+							<td><a href="#get-eventsub-subscriptions">Get EventSub Subscriptions</a></td>
+							<td><p>Gets a list of EventSub subscriptions that the client in the access token created.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Games</td>
+							
+							<td><a href="#get-top-games">Get Top Games</a></td>
+							<td><p>Gets information about all broadcasts on Twitch.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Games</td>
+							
+							<td><a href="#get-games">Get Games</a></td>
+							<td><p>Gets information about specified games.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Goals</td>
+							
+							<td><a href="#get-creator-goals">Get Creator Goals</a></td>
+							<td><p>Gets the broadcaster’s list of active goals.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Hype Train</td>
+							
+							<td><a href="#get-hype-train-events">Get Hype Train Events</a></td>
+							<td><p>Gets information about the broadcaster’s current or most recent Hype Train event.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#check-automod-status">Check AutoMod Status</a></td>
+							<td><p>Checks whether AutoMod would flag the specified message for review.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#manage-held-automod-messages">Manage Held AutoMod Messages</a></td>
+							<td><p>Allow or deny the message that AutoMod flagged for review.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#get-automod-settings">Get AutoMod Settings</a></td>
+							<td><p>Gets the broadcaster’s AutoMod settings.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#update-automod-settings">Update AutoMod Settings</a></td>
+							<td><p>Updates the broadcaster’s AutoMod settings.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#get-banned-users">Get Banned Users</a></td>
+							<td><p>Gets all users that the broadcaster banned or put in a timeout.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#ban-user">Ban User</a></td>
+							<td><p>Bans a user from participating in a broadcaster’s chat room or puts them in a timeout.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#unban-user">Unban User</a></td>
+							<td><p>Removes the ban or timeout that was placed on the specified user.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#get-blocked-terms">Get Blocked Terms</a></td>
+							<td><p>Gets the broadcaster’s list of non-private, blocked words or phrases.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#add-blocked-term">Add Blocked Term</a></td>
+							<td><p>Adds a word or phrase to the broadcaster’s list of blocked terms.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#remove-blocked-term">Remove Blocked Term</a></td>
+							<td><p>Removes the word or phrase from the broadcaster’s list of blocked terms.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#delete-chat-messages">Delete Chat Messages</a></td>
+							<td><p>Removes a single chat message or all chat messages from the broadcaster’s chat room.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#get-moderators">Get Moderators</a></td>
+							<td><p>Gets all users allowed to moderate the broadcaster’s chat room.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#add-channel-moderator">Add Channel Moderator</a></td>
+							<td><p>Adds a moderator to the broadcaster’s chat room.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#remove-channel-moderator">Remove Channel Moderator</a></td>
+							<td><p>Removes a moderator from the broadcaster’s chat room.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#get-vips">Get VIPs</a></td>
+							<td><p>Gets a list of the broadcaster’s VIPs.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#add-channel-vip">Add Channel VIP</a></td>
+							<td><p>Adds the specified user as a VIP in the broadcaster’s channel.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#remove-channel-vip">Remove Channel VIP</a></td>
+							<td><p>Removes the specified user as a VIP in the broadcaster’s channel.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#update-shield-mode-status">Update Shield Mode Status</a></td>
+							<td><p>Activates or deactivates the broadcaster’s Shield Mode.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Moderation</td>
+							
+							<td><a href="#get-shield-mode-status">Get Shield Mode Status</a></td>
+							<td><p>Gets the broadcaster’s Shield Mode activation status.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Polls</td>
+							
+							<td><a href="#get-polls">Get Polls</a></td>
+							<td><p>Gets a list of polls that the broadcaster created.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Polls</td>
+							
+							<td><a href="#create-poll">Create Poll</a></td>
+							<td><p>Creates a poll that viewers in the broadcaster’s channel can vote on.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Polls</td>
+							
+							<td><a href="#end-poll">End Poll</a></td>
+							<td><p>End an active poll.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Predictions</td>
+							
+							<td><a href="#get-predictions">Get Predictions</a></td>
+							<td><p>Gets a list of Channel Points Predictions that the broadcaster created.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Predictions</td>
+							
+							<td><a href="#create-prediction">Create Prediction</a></td>
+							<td><p>Create a Channel Points Prediction.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Predictions</td>
+							
+							<td><a href="#end-prediction">End Prediction</a></td>
+							<td><p>Locks, resolves, or cancels a Channel Points Prediction.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Raids</td>
+							
+							<td><a href="#start-a-raid">Start a raid</a></td>
+							<td><p>Raid another channel by sending the broadcaster’s viewers to the targeted channel.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Raids</td>
+							
+							<td><a href="#cancel-a-raid">Cancel a raid</a></td>
+							<td><p>Cancel a pending raid.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Schedule</td>
+							
+							<td><a href="#get-channel-stream-schedule">Get Channel Stream Schedule</a></td>
+							<td><p>Gets the broadcaster’s streaming schedule.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Schedule</td>
+							
+							<td><a href="#get-channel-icalendar">Get Channel iCalendar</a></td>
+							<td><p>Gets the broadcaster’s streaming schedule as an <a href="https://datatracker.ietf.org/doc/html/rfc5545" target="_blank">iCalendar</a>.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Schedule</td>
+							
+							<td><a href="#update-channel-stream-schedule">Update Channel Stream Schedule</a></td>
+							<td><p>Updates the broadcaster’s schedule settings, such as scheduling a vacation.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Schedule</td>
+							
+							<td><a href="#create-channel-stream-schedule-segment">Create Channel Stream Schedule Segment</a></td>
+							<td><p>Adds a single or recurring broadcast to the broadcaster’s streaming schedule.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Schedule</td>
+							
+							<td><a href="#update-channel-stream-schedule-segment">Update Channel Stream Schedule Segment</a></td>
+							<td><p>Updates a scheduled broadcast segment.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Schedule</td>
+							
+							<td><a href="#delete-channel-stream-schedule-segment">Delete Channel Stream Schedule Segment</a></td>
+							<td><p>Deletes a broadcast from the broadcaster’s streaming schedule.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Search</td>
+							
+							<td><a href="#search-categories">Search Categories</a></td>
+							<td><p>Gets the games or categories that match the specified query.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Search</td>
+							
+							<td><a href="#search-channels">Search Channels</a></td>
+							<td><p>Gets the channels that match the specified query and have streamed content within the past 6 months.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Music</td>
+							
+							<td><a href="#get-soundtrack-current-track">Get Soundtrack Current Track</a></td>
+							<td><p>Gets the Soundtrack track that the broadcaster is playing.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Music</td>
+							
+							<td><a href="#get-soundtrack-playlist">Get Soundtrack Playlist</a></td>
+							<td><p>Gets the Soundtrack playlist’s tracks.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Music</td>
+							
+							<td><a href="#get-soundtrack-playlists">Get Soundtrack Playlists</a></td>
+							<td><p>Gets a list of Soundtrack playlists.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Streams</td>
+							
+							<td><a href="#get-stream-key">Get Stream Key</a></td>
+							<td><p>Gets the channel’s stream key.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Streams</td>
+							
+							<td><a href="#get-streams">Get Streams</a></td>
+							<td><p>Gets a list of all streams.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Streams</td>
+							
+							<td><a href="#get-followed-streams">Get Followed Streams</a></td>
+							<td><p>Gets the list of broadcasters that the user follows and that are streaming live.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Streams</td>
+							
+							<td><a href="#create-stream-marker">Create Stream Marker</a></td>
+							<td><p>Adds a marker to a live stream.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Streams</td>
+							
+							<td><a href="#get-stream-markers">Get Stream Markers</a></td>
+							<td><p>Gets a list of markers from the user’s most recent stream or from the specified VOD/video.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Subscriptions</td>
+							
+							<td><a href="#get-broadcaster-subscriptions">Get Broadcaster Subscriptions</a></td>
+							<td><p>Gets a list of users that subscribe to the specified broadcaster.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Subscriptions</td>
+							
+							<td><a href="#check-user-subscription">Check User Subscription</a></td>
+							<td><p>Checks whether the user subscribes to the broadcaster’s channel.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Tags</td>
+							
+							<td><a href="#get-all-stream-tags">Get All Stream Tags</a></td>
+							<td><p>Gets the list of all stream tags that Twitch defines. You can also filter the list by one or more tag IDs.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Tags</td>
+							
+							<td><a href="#get-stream-tags">Get Stream Tags</a></td>
+							<td><p>Gets the list of stream tags that the broadcaster or Twitch added to their channel.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Teams</td>
+							
+							<td><a href="#get-channel-teams">Get Channel Teams</a></td>
+							<td><p>Gets the list of Twitch teams that the broadcaster is a member of.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Teams</td>
+							
+							<td><a href="#get-teams">Get Teams</a></td>
+							<td><p>Gets information about the specified Twitch team.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Users</td>
+							
+							<td><a href="#get-users">Get Users</a></td>
+							<td><p>Gets information about one or more users.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Users</td>
+							
+							<td><a href="#update-user">Update User</a></td>
+							<td><p>Updates the user’s information.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Users</td>
+							
+							<td><a href="#get-users-follows">Get Users Follows</a></td>
+							<td><p>Gets information about users that are following other users.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Users</td>
+							
+							<td><a href="#get-user-block-list">Get User Block List</a></td>
+							<td><p>Gets the list of users that the broadcaster has blocked.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Users</td>
+							
+							<td><a href="#block-user">Block User</a></td>
+							<td><p>Blocks the specified user from interacting with or having contact with the broadcaster.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Users</td>
+							
+							<td><a href="#unblock-user">Unblock User</a></td>
+							<td><p>Removes the user from the broadcaster’s list of blocked users.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Users</td>
+							
+							<td><a href="#get-user-extensions">Get User Extensions</a></td>
+							<td><p>Gets a list of all extensions (both active and inactive) that the broadcaster has installed.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Users</td>
+							
+							<td><a href="#get-user-active-extensions">Get User Active Extensions</a></td>
+							<td><p>Gets the active extensions that the broadcaster has installed for each configuration.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Users</td>
+							
+							<td><a href="#update-user-extensions">Update User Extensions</a></td>
+							<td><p>Updates an installed extension’s information.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Videos</td>
+							
+							<td><a href="#get-videos">Get Videos</a></td>
+							<td><p>Gets information about one or more published videos.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Videos</td>
+							
+							<td><a href="#delete-videos">Delete Videos</a></td>
+							<td><p>Deletes one or more videos.</p>
+</td>
+						</tr>
+					
+				
+					
+						<tr>
+							
+								<td>Whispers</td>
+							
+							<td><a href="#send-whisper">Send Whisper</a></td>
+							<td><p>Sends a whisper message to the specified user.</p>
+</td>
+						</tr>
+					
+				
+			</tbody>
+		</table>

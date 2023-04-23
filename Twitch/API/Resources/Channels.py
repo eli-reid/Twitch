@@ -1,8 +1,4 @@
-from API.Resources import Utils
-from API.Resources import Scope 
-from typing import Optional
-
-
+from __imports import *
 """
 Get Channel Information
 
@@ -44,7 +40,7 @@ class ChannelInformationRequest(Utils.RequestBaseClass):
   
         self.broadcaster_ids: list[str] = broadcaster_ids
         super().__init__()
-
+@dataclass
 class ChannelInformationItem:
     broadcaster_id: str
     broadcaster_login: str
@@ -101,9 +97,12 @@ class ModifyChannelInformationRequest(Utils.RequestBaseClass):
         self.delay = delay
         self.tags = tags
         super().__init__()
-
+@dataclass
+class ModifyChannelItem:
+    status: Utils.HTTPMethod
 class ModifyChannelInformationResponse(Utils.ResponseBaseClass):
-    pass
+    def __init__(self) -> None:
+        super().__init__(ModifyChannelItem)
 
 
 """
@@ -143,15 +142,16 @@ class ChannelEditorsRequest(Utils.RequestBaseClass):
     def __init__(self, broadcaster_id: str) -> None:
         self.broadcaster_id = broadcaster_id
         super().__init__()
-class ChannelEditorsItem:
-    def __init__(self) -> None:
-         self.user_id:str
-         self.user_name: str
-         self.created_at: str
+
+@dataclass
+class ChannelEditorItem:
+    user_id:str
+    user_name: str
+    created_at: str
 
 class ChannelEditorsResponse(Utils.ResponseBaseClass):
     def __init__(self) -> None:
-        super().__init__(ChannelEditorsItem)
+        super().__init__(ChannelEditorItem)
 
 """
 Get Followed Channels - BETA
@@ -204,8 +204,35 @@ response:
 }
 
 """
+class FollowedChannelsRequest(Utils.RequestBaseClass):
+    requestType = Utils.HTTPMethod.GET
+    scope = Scope.User.Read.Follows
+    authorization = Utils.AuthRequired.USER
+    endPoint ="channels/followed"
+    def __init__(self, user_id: str, 
+                 broadcaster_id: Optional[str]=None, 
+                 first: Optional[int]=None, 
+                 after:Optional[str]=None) -> None:
+        
+        self.user_id: str = user_id
+        self.broadcaster_id: str = broadcaster_id
+        self.first: int = first
+        self.after: str = after
+        super().__init__()
 
+@dataclass
+class FollowedChannelItem:
+    broadcaster_id: str
+    broadcaster_login: str
+    broadcaster_name: str
+    followed_at: str 
 
+class FollowedChannelsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
+    total:int = 0
+    def __init__(self) -> None:
+        super().__init__(FollowedChannelItem)
+
+   
 """
 Get Channel Followers - BETA
 
@@ -253,3 +280,29 @@ response: - The data field is an empty array, which means the user doesn't follo
 }
 """
 
+class ChannelFollowersRequest(Utils.RequestBaseClass):
+    requestType = Utils.HTTPMethod.GET
+    scope = Scope.Moderator.Read.Followers
+    authorization = Utils.AuthRequired.USER
+    endPoint = "/channels/followers"
+    def __init__(self, broadcaster_id: str, 
+                 user_id: Optional[str]=None, 
+                 first: Optional[int]=None,  
+                 after: Optional[str]=None) -> None:
+        self.broadcaster_id: str = broadcaster_id
+        self.user_id: str = user_id
+        self.first: int = first
+        self.after: str = after
+        super().__init__()
+
+@dataclass
+class ChannelFollowerItem:
+    followed_at: str    #UTC timestamp
+    user_id: str        #ID that uniquely identifies the user that’s following the broadcaster.
+    user_login: str     #user’s login name.
+    user_name: str      #user’s display name.
+
+class ChannelFollowersResponse(Utils.PagenationMixin,Utils.ResponseBaseClass):
+    total: int = 0
+    def __init__(self) -> None:
+        super().__init__(ChannelFollowerItem)
