@@ -1,7 +1,7 @@
-from __imports import *
+from Twitch.API.Resources.__imports import *
 
 class GetExtensionConfigurationSegmentRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -12,7 +12,7 @@ class GetExtensionConfigurationSegmentResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class SetExtensionConfigurationSegmentRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -23,7 +23,7 @@ class SetExtensionConfigurationSegmentResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class SetExtensionRequiredConfigurationRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -34,7 +34,7 @@ class SetExtensionRequiredConfigurationResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class SendExtensionPubSubMessageRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -45,7 +45,7 @@ class SendExtensionPubSubMessageResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetExtensionLiveChannelsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -56,7 +56,7 @@ class GetExtensionLiveChannelsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetExtensionSecretsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -67,7 +67,7 @@ class GetExtensionSecretsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class CreateExtensionSecretRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -78,7 +78,7 @@ class CreateExtensionSecretResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class SendExtensionChatMessageRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -89,7 +89,7 @@ class SendExtensionChatMessageResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetExtensionsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -100,7 +100,7 @@ class GetExtensionsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetReleasedExtensionsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -111,7 +111,7 @@ class GetReleasedExtensionsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetExtensionBitsProductsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -122,7 +122,7 @@ class GetExtensionBitsProductsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class UpdateExtensionBitsProductRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"

@@ -1,7 +1,9 @@
 
-class Analytics:
-    class Read:
 
+class _Analytics:
+    
+    class _Read:
+        
         @property 
         def Extensions(cls) -> str:
             """
@@ -21,9 +23,8 @@ class Analytics:
                 - Get Game Analytics
             """
             return "analytics:read:games"
-       
-class Bits:
-
+    Read =_Read()
+class _Bits:
     @property
     def Read(cls):
         """
@@ -34,8 +35,8 @@ class Bits:
         """
         return"bits:read"
 
-class Channel:
-    class Edit:
+class _Channel:
+    class _Edit:
 
         @property
         def Commercial(cls) -> str:
@@ -47,7 +48,7 @@ class Channel:
             """
             return "channel:edit:commercial"
     
-    class Manage:
+    class _Manage:
 
         @property
         def Broadcast(cls) -> str:
@@ -168,7 +169,7 @@ class Channel:
             """
             return "channel:manage:vips"
     
-    class Read:
+    class _Read:
 
         @property
         def Charity(cls) -> str:
@@ -233,22 +234,25 @@ class Channel:
         @property
         def Vips(cls) -> str:
             return "channel:read:vips"
+    Read = _Read()
+    Manage = _Manage()
+    Edit = _Edit()
 
 
-class Clips:
+class _Clips:
 
     @property
     def Edit(cls) -> str:
         return "clips:edit"
 
-class Moderation:
+class _Moderation:
 
     @property
     def Read(cls) -> str:
         return "moderation:read"
 
-class Moderator:
-    class Manage:
+class _Moderator:
+    class _Manage:
         
         @property
         def Announcements(cls) -> str:
@@ -287,7 +291,7 @@ class Moderator:
             return "moderator:manage:shoutouts"
         
 
-    class Read:
+    class _Read:
         
         @property
         def Automod_settings(cls) -> str:
@@ -316,14 +320,16 @@ class Moderator:
         @property
         def Shoutouts(cls) -> str:
             return "moderator:read:shoutouts"
-        
-class User:
+    Read = _Read()
+    Manage = _Manage()
+
+class _User:
     
     @property
     def Edit(cls) -> str:
         return "user:edit"
     
-    class Manage:
+    class _Manage:
 
         @property
         def Blocked_users(cls) -> str:
@@ -337,7 +343,7 @@ class User:
         def Whispers(cls) -> str:
             return "user:manage:whispers"
         
-    class Read:
+    class _Read:
 
         @property
         def Blocked_users(cls) -> str:
@@ -359,3 +365,15 @@ class User:
         def Subscriptions(cls) -> str:
             return "user:read:subscriptions"
         
+    Read = _Read()
+    Manage = _Manage()
+
+
+Analytics = _Analytics()
+Bits = _Bits()
+Clips = _Clips()
+Channel = _Channel()
+User = _User()
+Moderation = _Moderation()
+Moderator = _Moderator()
+

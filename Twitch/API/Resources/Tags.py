@@ -1,7 +1,7 @@
-from __imports import * 
+from Twitch.API.Resources.__imports import *
 
 class GetAllStreamTagsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -12,7 +12,7 @@ class GetAllStreamTagsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetStreamTagsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"

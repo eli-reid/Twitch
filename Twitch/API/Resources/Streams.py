@@ -1,7 +1,7 @@
-from __imports import *
+from Twitch.API.Resources.__imports import *
 
 class GetStreamKeyRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -12,7 +12,7 @@ class GetStreamKeyResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetStreamsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -23,7 +23,7 @@ class GetStreamsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetFollowedStreamsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -34,7 +34,7 @@ class GetFollowedStreamsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class CreateStreamMarkerRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -45,7 +45,7 @@ class CreateStreamMarkerResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetStreamMarkersRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"

@@ -1,7 +1,7 @@
-from __imports import *
+from Twitch.API.Resources.__imports import *
 
 class GetPredictionsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -12,7 +12,7 @@ class GetPredictionsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class CreatePredictionRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -23,7 +23,7 @@ class CreatePredictionResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class EndPredictionRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"

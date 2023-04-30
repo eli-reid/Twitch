@@ -1,6 +1,6 @@
-from __imports import *
+from Twitch.API.Resources.__imports import *
 class GetChattersRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -11,7 +11,7 @@ class GetChattersResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetChannelEmotesRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -22,7 +22,7 @@ class GetChannelEmotesResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetGlobalEmotesRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -33,7 +33,7 @@ class GetGlobalEmotesResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetEmoteSetsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -44,7 +44,7 @@ class GetEmoteSetsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetChannelChatBadgesRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -55,7 +55,7 @@ class GetChannelChatBadgesResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetGlobalChatBadgesRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -66,7 +66,7 @@ class GetGlobalChatBadgesResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetChatSettingsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -77,7 +77,7 @@ class GetChatSettingsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class UpdateChatSettingsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -88,7 +88,7 @@ class UpdateChatSettingsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class SendChatAnnouncementRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -99,7 +99,7 @@ class SendChatAnnouncementResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class SendaShoutoutRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -110,7 +110,7 @@ class SendaShoutoutResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class GetUserChatColorRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -121,7 +121,7 @@ class GetUserChatColorResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class UpdateUserChatColorRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"

@@ -1,4 +1,4 @@
-from __imports import *
+from Twitch.API.Resources.__imports import *
 """
 Get Extension Analytics
 
@@ -29,7 +29,7 @@ response:
 
 """
 
-class ExtensionAnalyticsRequest(Utils.RequestBaseClass):
+class GetExtensionAnalyticsRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = Scope.Analytics.Read.Extensions
     authorization = Utils.AuthRequired.USER
@@ -57,7 +57,7 @@ class ExtensionAnalyticsItem(Utils.DateRangeMixin):
     URL:str
     type:str
 
-class ExtensionAnalyticsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
+class GetExtensionAnalyticsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
     def __init__(self) -> None:
         super().__init__(ExtensionAnalyticsItem)
 
@@ -85,10 +85,8 @@ response:
 }
 
 """
-
-
         
-class GameAnalyticsRequest(Utils.RequestBaseClass):
+class GetGameAnalyticsRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = Scope.Analytics.Read.Extensions
     authorization = Utils.AuthRequired.USER
@@ -118,6 +116,6 @@ class GameAnalyticsItem(Utils.DateRangeMixin):
         self.game_id:str
         self.URL:str
         self.type:str
-class GameAnalyticsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
+class GetGameAnalyticsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
     def __init__(self) -> None:
         super().__init__(GameAnalyticsItem)
