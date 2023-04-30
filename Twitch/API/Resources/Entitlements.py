@@ -1,6 +1,6 @@
-from __imports import *
+from Twitch.API.Resources.__imports import *
 class GetDropsEntitlementsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"
@@ -11,7 +11,7 @@ class GetDropsEntitlementsResponse(Utils.ResponseBaseClass):
             super().__init__()
 
 class UpdateDropsEntitlementsRequest(Utils.RequestBaseClass):
-        requestType = Utils.RequestMethods.POST
+        requestType = Utils.HTTPMethod.POST
         scope = Scope.Channel.Manage.Redemptions
         authorization = Utils.AuthRequired.USER
         endPoint ="//channel_points//custom_rewards"

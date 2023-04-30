@@ -6,9 +6,10 @@ async def main():
     oauth = Oauth(apikeys.CLIENT_ID,apikeys.CLIENT_SECRET, "user:edit:follows",redirectUrl=None)
     while True:
         print("[TESTING OPTIONS]")
-        print('(1) test oauth get tokenm with code')
+        print('(1) test oauth get token with code')
         print('(2) test oauth validate token')
         print('(3) test oauth refresh token')
+        print('(4) get client oauth')
         print("(q) to quit")
         option = input("please select option: ")  
         if option == '1':
@@ -31,6 +32,9 @@ async def main():
             print(f'Access Token: {tokenobj.access_token}')
             print(f'Refresh Token: {tokenobj.refresh_token}')
             print(f'Scope: {tokenobj.scope}')
+        if option == '4':
+            tokenobj = await oauth.GetClientToken()
+            print(f'Client Access Token: {tokenobj.access_token}')
         if option == 'q':
             break
 

@@ -1,4 +1,4 @@
-from __imports import *
+from Twitch.API.Resources.__imports import *
 
 """
 Get Bits Leaderboard
@@ -36,7 +36,7 @@ response
 }
 """
 
-class BitsLeaderboardRequest(Utils.RequestBaseClass):
+class GetBitsLeaderboardRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = Scope.Bits.Read
     authorization = Utils.AuthRequired.USER
@@ -62,7 +62,7 @@ class BitsLeaderboardItem:
         self.rank: int = -1
         self.score: int = -1
 
-class BitsLeaderboardResponse(Utils.DateRangeMixin, Utils.ResponseBaseClass):
+class GetBitsLeaderboardResponse(Utils.DateRangeMixin, Utils.ResponseBaseClass):
     def __init__(self) -> None:
         super().__init__(BitsLeaderboardItem)
    
@@ -136,7 +136,7 @@ response:
   ]
 }
 """
-class CheermotesRequest(Utils.RequestBaseClass):
+class GetCheermotesRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = None
     authorization = Utils.AuthRequired.CLIENT 
@@ -188,7 +188,7 @@ class CheermotesItem:
 
 
     
-class CheermotesResponse(Utils.ResponseBaseClass):
+class GetCheermotesResponse(Utils.ResponseBaseClass):
     def __init__(self,) -> None:
         super().__init__(CheermotesItem)
 
@@ -260,7 +260,7 @@ response
 }
 """
 
-class ExtensionTransactionsRequest(Utils.RequestBaseClass):
+class GetExtensionTransactionsRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = None
     authorization = Utils.AuthRequired.CLIENT
@@ -298,6 +298,6 @@ class ExtensionTransactionItem:
     product_type: str = ""
     product_data: ProductDataItem 
 
-class ExtensionTransactionsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
+class GetExtensionTransactionsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
     def __init__(self) -> None:
         super().__init__(ExtensionTransactionItem)

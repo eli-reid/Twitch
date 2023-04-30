@@ -1,17 +1,17 @@
 from aiohttp import ClientResponse, http_exceptions
 from datetime import datetime
 from typing import Callable, Optional
-from API.Exceptions import (
+from Twitch.API.Exceptions import (
     TwitchApiBadRequstException, 
     TwitchApiNotFoundException, 
     TwitchApiTooManyRequestsException, 
     TwitchApiUnauthorizedException,
     TwitchApiInvalidRequestType,
     TwitchApiIvalidUserScope)
-from API.Resources.Utils import pagenation, dateRange, RequestBaseClass, ResponseBaseClass
-from API.Resources import *
-from API._ApiRequest import APIRequest
-from API.Resources import Utils
+from Twitch.API.Resources.Utils import pagenation, dateRange, RequestBaseClass, ResponseBaseClass
+from Twitch.API.Resources import *
+from Twitch.API._ApiRequest import APIRequest
+from Twitch.API.Resources import Utils
 
 class Credentials:
     def __init__(self, id: str, OauthToken: str, scopes: list) -> None:
@@ -19,20 +19,12 @@ class Credentials:
         self.Oauth = OauthToken
         self.scopes = scopes
 class twitchAPI:
-
     def __init__(self, clientCreds: Credentials, userCreds:Credentials) -> None:
-        self._APIRequest: APIRequest = APIRequest("https://api.twitch.tv/helix")
+        self.APIconnector = APIRequest("https://api.twitch.tv/helix")
+
         self._credentials:dict[Utils.AuthRequired, Credentials] = {
             Utils.AuthRequired.CLIENT: clientCreds,
             Utils.AuthRequired.USER : userCreds,
-        }
-
-        self._RequestFunc: dict = {
-            Utils.HTTPMethod.DELETE : self._APIRequest.deleteRequest,
-            Utils.HTTPMethod.GET : self._APIRequest.getRequest,
-            Utils.HTTPMethod.PATCH : self._APIRequest.patchRequest,
-            Utils.HTTPMethod.POST : self._APIRequest.postRequest,
-            Utils.HTTPMethod.PUT : self._APIRequest.putRequest,
         }
 
         self._APIReqestFailedExcptions: dict = {
@@ -68,22 +60,24 @@ class twitchAPI:
         Raises APIReqestFailedException(APIresponse)
         Raises TwitchApiIvalidUserScope
         """
-        if request.scope is not None and request.scope not in self._credentials[Utils.AuthRequired.USER].scopes:
+
+        
+        if request.authorization==Utils.AuthRequired.USER and request.scope is not None and request.scope not in self._credentials[Utils.AuthRequired.USER].scopes:
             raise TwitchApiIvalidUserScope("User doesn't have required scope!")    
         
         headers = {
             #set Authorization token based on api call required user 
             'Authorization': f'Bearer {self._credentials[request.authorization].Oauth}',
-            'Client-Id': self._client_id
+            'Client-Id': self._credentials[Utils.AuthRequired.CLIENT].id
         }
 
-        APIresponse: ClientResponse = await self._RequestFunc[request.requestType](request.endPoint, headers=headers, params=self._getParams(request), kwargs=kwargs)
+        APIresponse: ClientResponse = await self.APIconnector.request(request.endPoint,request.requestType,headers=headers ,params=self._getParams(request))
         if APIresponse.status in self._ApiRequestSuccess:
             response.raw = await APIresponse.json()
             for key, value in response.raw.items():
                     response.__setattr__(key, value)
             return
-        raise await self._APIReqestFailedExcptions[APIresponse.status](await response.json())
+        raise self._APIReqestFailedExcptions[APIresponse.status](await APIresponse.json())
 
     async def StartCommercial(self, length: int) -> StartCommercialRepsonse:
         request = StartCommercialRequest(self._credentials[Utils.UserType.BROADCASTER].id, length)
@@ -91,68 +85,114 @@ class twitchAPI:
         await self._twitchAPICall(request, response)
         return response
 
-    async def GetExtensionAnalytics(self) -> ExtensionAnalyticsResponse: 
-        request = ExtensionAnalyticsRequest()       
-        response = ExtensionAnalyticsResponse()
+    async def GetExtensionAnalytics(self,extension_id: Optional[str]= None, 
+                type: Optional[str]= None,
+                started_at: Optional[datetime] = None,
+                ended_at: Optional[datetime] = None,
+                first: Optional[int] = None,
+                after: Optional[str] = None) -> GetExtensionAnalyticsResponse:
+         
+        request = GetExtensionAnalyticsRequest(extension_id, type, started_at, ended_at, first, after)       
+        response = GetExtensionAnalyticsResponse()
         await self._twitchAPICall(request, response)
         return response
     
-    async def GetGameAnalytics(self, game_id: str, date_range: dateRange) -> GameAnalyticsResponse:
-        request = GameAnalyticsRequest(game_id, date_range)
-        response = GameAnalyticsResponse()
+    async def GetGameAnalytics(self,                 
+                 game_id: Optional[str] = None,
+                 type: Optional[str]= None,
+                 started_at: Optional[datetime] = None,
+                 ended_at: Optional[datetime] = None,
+                 first: Optional[int] = None,
+                 after: Optional[str] = None ) -> GetGameAnalyticsResponse:
+        
+        request = GetGameAnalyticsRequest(game_id, type, started_at, ended_at, first, after)
+        response = GetGameAnalyticsResponse()
         await self._twitchAPICall(request, response)
         return response
 
-    async def GetBitsLeaderboard(self, count:Optional[int] = 10, period: Optional[str] = "all", started_at: Optional[datetime] = "", user_id: Optional[str]= "") -> BitsLeaderboardResponse:
-        request = BitsLeaderboardRequest(count, period, started_at, user_id)
-        response = BitsLeaderboardResponse()
+    async def GetBitsLeaderboard(self, count:Optional[int]=None, 
+                                 period: Optional[str]=None, 
+                                 started_at: Optional[datetime]=None, 
+                                 user_id: Optional[str]=None) -> GetBitsLeaderboardResponse:
+        request = GetBitsLeaderboardRequest(count, period, started_at, user_id)
+        response = GetBitsLeaderboardResponse()
         await self._twitchAPICall(request, response)
         return response
 
-    async def GetCheermotes(self, broadcaster_id: Optional[str] = None) -> CheermotesResponse:
-        request = CheermotesRequest(broadcaster_id)
-        response = CheermotesResponse()
+    async def GetCheermotes(self, broadcaster_id: Optional[str] = None) -> GetCheermotesResponse:
+        request = GetCheermotesRequest(broadcaster_id)
+        response = GetCheermotesResponse()
         await self._twitchAPICall(request, response)
         return response
 
-    async def GetExtensionTransactions(self, extension_id:str, id: Optional[str]=None, first: Optional[int]=None, after: Optional[str]=None) -> ExtensionTransactionsResponse:
-        request = ExtensionTransactionsRequest(extension_id, id, first, after)
-        response = ExtensionTransactionsResponse()
+    async def GetExtensionTransactions(self, extension_id:str, 
+                                       id: Optional[str]=None, 
+                                       first: Optional[int]=None, 
+                                       after: Optional[str]=None) -> GetExtensionTransactionsResponse:
+        request = GetExtensionTransactionsRequest(extension_id, id, first, after)
+        response = GetExtensionTransactionsResponse()
         await self._twitchAPICall(request, response)
         return response
 
-    async def GetChannelInformation(self, broadcaster_ids:list, userAuth=False) -> ChannelInformationResponse:
-        request = ChannelInformationRequest(broadcaster_ids,userAuth)
-        response = ChannelInformationResponse()
+    async def GetChannelInformation(self, broadcaster_ids:list, userAuth=False) -> GetChannelInformationResponse:
+        request = GetChannelInformationRequest(broadcaster_ids, userAuth)
+        response = GetChannelInformationResponse()
         await self._twitchAPICall(request, response)
         return response
 
-    async def ModifyChannelInformation(self, title:Optional[str]=None, delay:Optional[int]=None, tags:Optional[list[str]]=None) -> ModifyChannelInformationResponse:
+    async def ModifyChannelInformation(self, title:Optional[str]=None, 
+                                       delay:Optional[int]=None, 
+                                       tags:Optional[list[str]]=None) -> ModifyChannelInformationResponse:
         request = ModifyChannelInformationRequest(self._credentials[Utils.AuthRequired.USER].id, title, delay, tags)
-        response = ExtensionTransactionsResponse()
+        response = GetExtensionTransactionsResponse()
         await self._twitchAPICall(request, response)
         return response
         
-    async def GetChannelEditors(self) -> ChannelEditorsResponse:
-        request = ChannelEditorsRequest(self._credentials[Utils.AuthRequired.USER].id)
-        response = ChannelEditorsResponse()
+    async def GetChannelEditors(self) -> GetChannelEditorsResponse:
+        request = GetChannelEditorsRequest(self._credentials[Utils.AuthRequired.USER].id)
+        response = GetChannelEditorsResponse()
         await self._twitchAPICall(request, response)
         return response
     
-    async def GetFollowedChannels(self, broadcaster_id: Optional[str]=None, first:Optional[int]=None, after: Optional[str]=None) -> FollowedChannelsResponse:
-        request = FollowedChannelsRequest(self._credentials[Utils.AuthRequired.USER].id, broadcaster_id, first, after)
-        response = FollowedChannelsResponse()
+    async def GetFollowedChannels(self, broadcaster_id: Optional[str]=None, 
+                                  first:Optional[int]=None, 
+                                  after: Optional[str]=None) -> GetFollowedChannelsResponse:
+        request = GetFollowedChannelsRequest(self._credentials[Utils.AuthRequired.USER].id, broadcaster_id, first, after)
+        response = GetFollowedChannelsResponse()
         await self._twitchAPICall(request, response)
         return response
 
-    async def CreateCustomRewards(self) -> CreateCustomRewardsResponse:
-        request = CreateCustomRewardsRequest()
+    async def CreateCustomRewards(self, title: str, 
+                                cost: int, 
+                                prompt: Optional[str]=None, 
+                                is_enabled: Optional[bool]=None,
+                                background_color: Optional[str]=None,
+                                is_user_input_required: Optional[bool]=None,
+                                is_max_per_stream_enabled: Optional[bool]=None,
+                                max_per_stream: Optional[int]=None,
+                                is_max_per_user_per_stream_enabled: Optional[bool]=None,
+                                max_per_user_per_stream: Optional[int]=None,
+                                is_global_cooldown_enabled: Optional[bool]=None,
+                                global_cooldown_seconds: Optional[int]=None,
+                                should_redemptions_skip_request_queue: Optional[bool]=None) -> CreateCustomRewardsResponse:
+        
+        request = CreateCustomRewardsRequest(self._credentials[Utils.AuthRequired.USER].id, 
+                                             title, cost, 
+                                             prompt, is_enabled, 
+                                             background_color, is_user_input_required,
+                                             is_max_per_stream_enabled, max_per_stream,
+                                             is_max_per_user_per_stream_enabled, 
+                                             max_per_user_per_stream,
+                                             is_global_cooldown_enabled,
+                                             global_cooldown_seconds,
+                                             should_redemptions_skip_request_queue)
+        
         response = CreateCustomRewardsResponse()
         await self._twitchAPICall(request, response)
         return response
     
-    async def DeleteCustomReward(self) -> DeleteCustomRewardResponse:
-        request = DeleteCustomRewardRequest()
+    async def DeleteCustomReward(self, id: str) -> DeleteCustomRewardResponse:
+        request = DeleteCustomRewardRequest(self._credentials[Utils.AuthRequired.USER].id, id)
         response = DeleteCustomRewardResponse()
         await self._twitchAPICall(request, response)
         return response
@@ -697,8 +737,8 @@ class twitchAPI:
         await self._twitchAPICall(request, response)
         return response
     
-    async def GetUsers(self) -> GetUsersResponse:
-        request = GetUsersRequest()
+    async def GetUsers(self,id:Optional[str]=None, login: Optional[str]=None) -> GetUsersResponse:
+        request = GetUsersRequest(id=id, login=login)
         response = GetUsersResponse()
         await self._twitchAPICall(request, response)
         return response
@@ -708,13 +748,7 @@ class twitchAPI:
         response = UpdateUserResponse()
         await self._twitchAPICall(request, response)
         return response
-    
-    async def GetUsersFollows(self) -> GetUsersFollowsResponse:
-        request = GetUsersFollowsRequest()
-        response = GetUsersFollowsResponse()
-        await self._twitchAPICall(request, response)
-        return response
-    
+
     async def GetUserBlockList(self) -> GetUserBlockListResponse:
         request = GetUserBlockListRequest()
         response = GetUserBlockListResponse()
@@ -751,20 +785,24 @@ class twitchAPI:
         await self._twitchAPICall(request, response)
         return response
 
-    async def GetVideos(self) -> GetVideosResponse:
+    async def GetVideos(self, id: Optional[str]=None, user_id: Optional[str]=None, 
+            game_id: Optional[str]=None, language: Optional[str]=None, 
+            period: Optional[str]=None, sort: Optional[str]=None, 
+            type: Optional[str]=None, first: Optional[str]=None, 
+            after: Optional[str]=None, before: Optional[str]=None) -> GetVideosResponse:
         request = GetVideosRequest()
         response = GetVideosResponse()
         await self._twitchAPICall(request, response)
         return response
 
-    async def DeleteVideos(self) -> DeleteVideosResponse:
-        request = DeleteVideosRequest()
+    async def DeleteVideos(self, id: str | list ) -> DeleteVideosResponse:
+        request = DeleteVideosRequest(id)
         response = DeleteVideosResponse()
         await self._twitchAPICall(request, response)
         return response
 
-    async def SendWhisper(self) -> SendWhisperResponse:
-        request = SendWhisperRequest()
+    async def SendWhisper(self, to_user_id: str, message: str) -> SendWhisperResponse:
+        request = SendWhisperRequest(self._credentials[SendWhisperRequest.authorization].id, to_user_id, message)
         response = SendWhisperResponse()
         await self._twitchAPICall(request, response)
         return response

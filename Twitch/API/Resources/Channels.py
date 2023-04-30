@@ -1,4 +1,4 @@
-from __imports import *
+from Twitch.API.Resources.__imports import *
 """
 Get Channel Information
 
@@ -29,7 +29,7 @@ response
 """
 
 
-class ChannelInformationRequest(Utils.RequestBaseClass):
+class GetChannelInformationRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = None
     authorization = Utils.AuthRequired.CLIENT
@@ -52,7 +52,7 @@ class ChannelInformationItem:
     delay: int
     tags: list
 
-class ChannelInformationResponse(Utils.ResponseBaseClass):
+class GetChannelInformationResponse(Utils.ResponseBaseClass):
    def __init__(self) -> None:
        super().__init__(ChannelInformationItem) 
 
@@ -133,7 +133,7 @@ response:
 }
 
 """
-class ChannelEditorsRequest(Utils.RequestBaseClass):
+class GetChannelEditorsRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = Scope.Channel.Read.Editors
     authorization = Utils.AuthRequired.USER
@@ -149,7 +149,7 @@ class ChannelEditorItem:
     user_name: str
     created_at: str
 
-class ChannelEditorsResponse(Utils.ResponseBaseClass):
+class GetChannelEditorsResponse(Utils.ResponseBaseClass):
     def __init__(self) -> None:
         super().__init__(ChannelEditorItem)
 
@@ -204,7 +204,7 @@ response:
 }
 
 """
-class FollowedChannelsRequest(Utils.RequestBaseClass):
+class GetFollowedChannelsRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = Scope.User.Read.Follows
     authorization = Utils.AuthRequired.USER
@@ -227,7 +227,7 @@ class FollowedChannelItem:
     broadcaster_name: str
     followed_at: str 
 
-class FollowedChannelsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
+class GetFollowedChannelsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
     total:int = 0
     def __init__(self) -> None:
         super().__init__(FollowedChannelItem)
@@ -280,7 +280,7 @@ response: - The data field is an empty array, which means the user doesn't follo
 }
 """
 
-class ChannelFollowersRequest(Utils.RequestBaseClass):
+class GetChannelFollowersRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = Scope.Moderator.Read.Followers
     authorization = Utils.AuthRequired.USER
@@ -302,7 +302,7 @@ class ChannelFollowerItem:
     user_login: str     #user’s login name.
     user_name: str      #user’s display name.
 
-class ChannelFollowersResponse(Utils.PagenationMixin,Utils.ResponseBaseClass):
+class GetChannelFollowersResponse(Utils.PagenationMixin,Utils.ResponseBaseClass):
     total: int = 0
     def __init__(self) -> None:
         super().__init__(ChannelFollowerItem)

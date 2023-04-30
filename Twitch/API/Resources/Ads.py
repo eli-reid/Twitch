@@ -1,4 +1,4 @@
-from __imports import *
+from Twitch.API.Resources.__imports import *
 
 
 """

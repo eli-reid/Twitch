@@ -1,27 +1,27 @@
-from API.Resources.Ads import StartCommercialRepsonse, StartCommercialRequest
-from API.Resources.Analytics import GameAnalyticsResponse,\
-                                ExtensionAnalyticsResponse, \
-                                ExtensionAnalyticsRequest,\
-                                GameAnalyticsRequest
+from Twitch.API.Resources.Ads import StartCommercialRepsonse, StartCommercialRequest
+from Twitch.API.Resources.Analytics import GetExtensionAnalyticsResponse, \
+                                GetExtensionAnalyticsRequest,\
+                                GetGameAnalyticsResponse,\
+                                GetGameAnalyticsRequest
 
-from API.Resources.Bits import ExtensionTransactionsResponse,\
-                            CheermotesResponse,\
-                            BitsLeaderboardResponse,\
-                            ExtensionTransactionsRequest,\
-                            CheermotesRequest,\
-                            BitsLeaderboardRequest
+from Twitch.API.Resources.Bits import GetExtensionTransactionsResponse,\
+                            GetCheermotesResponse,\
+                            GetBitsLeaderboardResponse,\
+                            GetExtensionTransactionsRequest,\
+                            GetCheermotesRequest,\
+                            GetBitsLeaderboardRequest
 
-from API.Resources.Channels import ModifyChannelInformationRequest, \
+from Twitch.API.Resources.Channels import ModifyChannelInformationRequest, \
                                 ModifyChannelInformationResponse, \
-                                ChannelInformationRequest, \
-                                ChannelInformationResponse, \
-                                FollowedChannelsRequest,\
-                                FollowedChannelsResponse,\
-                                ChannelFollowersRequest,\
-                                ChannelFollowersResponse,\
-                                ChannelEditorsRequest, \
-                                ChannelEditorsResponse
-from API.Resources.ChannelPoints import CreateCustomRewardsRequest,\
+                                GetChannelInformationRequest, \
+                                GetChannelInformationResponse, \
+                                GetFollowedChannelsRequest,\
+                                GetFollowedChannelsResponse,\
+                                GetChannelFollowersRequest,\
+                                GetChannelFollowersResponse,\
+                                GetChannelEditorsRequest, \
+                                GetChannelEditorsResponse
+from Twitch.API.Resources.ChannelPoints import CreateCustomRewardsRequest,\
                                     CreateCustomRewardsResponse,\
                                     DeleteCustomRewardRequest,\
                                     DeleteCustomRewardResponse,\
@@ -33,11 +33,11 @@ from API.Resources.ChannelPoints import CreateCustomRewardsRequest,\
                                     UpdateCustomRewardResponse,\
                                     UpdateRedemptionStatusRequest,\
                                     UpdateRedemptionStatusResponse
-from API.Resources.Charity import GetCharityCampaignRequest,\
+from Twitch.API.Resources.Charity import GetCharityCampaignRequest,\
                                 GetCharityCampaignResponse,\
                                 GetCharityCampaignDonationsRequest,\
                                 GetCharityCampaignDonationsResponse
-from API.Resources.Chat import GetChattersRequest,\
+from Twitch.API.Resources.Chat import GetChattersRequest,\
                             GetChattersResponse,\
                             GetChannelEmotesRequest,\
                             GetChannelEmotesResponse,\
@@ -61,15 +61,15 @@ from API.Resources.Chat import GetChattersRequest,\
                             GetUserChatColorResponse,\
                             UpdateUserChatColorRequest,\
                             UpdateUserChatColorResponse
-from API.Resources.Clips import CreateClipRequest,\
+from Twitch.API.Resources.Clips import CreateClipRequest,\
                         CreateClipResponse,\
                         GetClipsRequest,\
                         GetClipsResponse
-from API.Resources.Entitlements import GetDropsEntitlementsRequest,\
+from Twitch.API.Resources.Entitlements import GetDropsEntitlementsRequest,\
                                     GetDropsEntitlementsResponse,\
                                     UpdateDropsEntitlementsRequest,\
                                     UpdateDropsEntitlementsResponse
-from API.Resources.Extensions import GetExtensionConfigurationSegmentRequest,\
+from Twitch.API.Resources.Extensions import GetExtensionConfigurationSegmentRequest,\
                                     GetExtensionConfigurationSegmentResponse,\
                                     SetExtensionConfigurationSegmentRequest,\
                                     SetExtensionConfigurationSegmentResponse,\
@@ -93,21 +93,21 @@ from API.Resources.Extensions import GetExtensionConfigurationSegmentRequest,\
                                     GetExtensionBitsProductsResponse,\
                                     UpdateExtensionBitsProductRequest,\
                                     UpdateExtensionBitsProductResponse
-from API.Resources.EventSub import CreateEventSubSubscriptionRequest,\
+from Twitch.API.Resources.EventSub import CreateEventSubSubscriptionRequest,\
                                 CreateEventSubSubscriptionResponse,\
                                 DeleteEventSubSubscriptionRequest,\
                                 DeleteEventSubSubscriptionResponse,\
                                 GetEventSubSubscriptionsRequest,\
                                 GetEventSubSubscriptionsResponse
-from API.Resources.Games import GetTopGamesRequest,\
+from Twitch.API.Resources.Games import GetTopGamesRequest,\
                             GetTopGamesResponse,\
                             GetGamesRequest,\
                             GetGamesResponse
-from API.Resources.Goals import GetCreatorGoalsRequest,\
+from Twitch.API.Resources.Goals import GetCreatorGoalsRequest,\
                                 GetCreatorGoalsResponse
-from API.Resources.HypeTrain import GetHypeTrainEventsRequest,\
+from Twitch.API.Resources.HypeTrain import GetHypeTrainEventsRequest,\
                                 GetHypeTrainEventsResponse
-from API.Resources.Moderation import CheckAutoModStatusRequest,\
+from Twitch.API.Resources.Moderation import CheckAutoModStatusRequest,\
                                 CheckAutoModStatusResponse,\
                                 ManageHeldAutoModMessagesRequest,\
                                 ManageHeldAutoModMessagesResponse,\
@@ -145,23 +145,23 @@ from API.Resources.Moderation import CheckAutoModStatusRequest,\
                                 UpdateShieldModeStatusResponse,\
                                 GetShieldModeStatusRequest,\
                                 GetShieldModeStatusResponse
-from API.Resources.Polls import GetPollsRequest,\
+from Twitch.API.Resources.Polls import GetPollsRequest,\
                             GetPollsResponse,\
                             CreatePollRequest,\
                             CreatePollResponse,\
                             EndPollRequest,\
                             EndPollResponse
-from API.Resources.Predictions import GetPredictionsRequest,\
+from Twitch.API.Resources.Predictions import GetPredictionsRequest,\
                                     GetPredictionsResponse,\
                                     CreatePredictionRequest,\
                                     CreatePredictionResponse,\
                                     EndPredictionRequest,\
                                     EndPredictionResponse
-from API.Resources.Raids import StartaraidRequest,\
+from Twitch.API.Resources.Raids import StartaraidRequest,\
                             StartaraidResponse,\
                             CancelaraidRequest,\
                             CancelaraidResponse
-from API.Resources.Schedule import GetChannelStreamScheduleRequest,\
+from Twitch.API.Resources.Schedule import GetChannelStreamScheduleRequest,\
                                 GetChannelStreamScheduleResponse,\
                                 GetChanneliCalendarRequest,\
                                 GetChanneliCalendarResponse,\
@@ -173,17 +173,17 @@ from API.Resources.Schedule import GetChannelStreamScheduleRequest,\
                                 UpdateChannelStreamScheduleSegmentResponse,\
                                 DeleteChannelStreamScheduleSegmentRequest,\
                                 DeleteChannelStreamScheduleSegmentResponse
-from API.Resources.Search import SearchCategoriesRequest,\
+from Twitch.API.Resources.Search import SearchCategoriesRequest,\
                             SearchCategoriesResponse,\
                             SearchChannelsRequest,\
                             SearchChannelsResponse
-from API.Resources.Music import GetSoundtrackCurrentTrackRequest,\
+from Twitch.API.Resources.Music import GetSoundtrackCurrentTrackRequest,\
                             GetSoundtrackCurrentTrackResponse,\
                             GetSoundtrackPlaylistRequest,\
                             GetSoundtrackPlaylistResponse,\
                             GetSoundtrackPlaylistsRequest,\
                             GetSoundtrackPlaylistsResponse
-from API.Resources.Streams import GetStreamKeyRequest,\
+from Twitch.API.Resources.Streams import GetStreamKeyRequest,\
                                 GetStreamKeyResponse,\
                                 GetStreamsRequest,\
                                 GetStreamsResponse,\
@@ -193,24 +193,22 @@ from API.Resources.Streams import GetStreamKeyRequest,\
                                 CreateStreamMarkerResponse,\
                                 GetStreamMarkersRequest,\
                                 GetStreamMarkersResponse
-from API.Resources.Subscriptions import GetBroadcasterSubscriptionsRequest,\
+from Twitch.API.Resources.Subscriptions import GetBroadcasterSubscriptionsRequest,\
                                     GetBroadcasterSubscriptionsResponse,\
                                     CheckUserSubscriptionRequest,\
                                     CheckUserSubscriptionResponse
-from API.Resources.Tags import GetAllStreamTagsRequest,\
+from Twitch.API.Resources.Tags import GetAllStreamTagsRequest,\
                             GetAllStreamTagsResponse,\
                             GetStreamTagsRequest,\
                             GetStreamTagsResponse
-from API.Resources.Teams import GetChannelTeamsRequest,\
+from Twitch.API.Resources.Teams import GetChannelTeamsRequest,\
                             GetChannelTeamsResponse,\
                             GetTeamsRequest,\
                             GetTeamsResponse
-from API.Resources.Users import GetUsersRequest,\
+from Twitch.API.Resources.Users import GetUsersRequest,\
                             GetUsersResponse,\
                             UpdateUserRequest,\
                             UpdateUserResponse,\
-                            GetUsersFollowsRequest,\
-                            GetUsersFollowsResponse,\
                             GetUserBlockListRequest,\
                             GetUserBlockListResponse,\
                             BlockUserRequest,\
@@ -223,8 +221,8 @@ from API.Resources.Users import GetUsersRequest,\
                             GetUserActiveExtensionsResponse,\
                             UpdateUserExtensionsRequest,\
                             UpdateUserExtensionsResponse
-from API.Resources.Videos import GetVideosRequest,\
+from Twitch.API.Resources.Videos import GetVideosRequest,\
                                 GetVideosResponse,\
                                 DeleteVideosRequest,\
                                 DeleteVideosResponse
-from API.Resources.Whispers import SendWhisperRequest, SendWhisperResponse
+from Twitch.API.Resources.Whispers import SendWhisperRequest, SendWhisperResponse
