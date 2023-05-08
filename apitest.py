@@ -10,8 +10,7 @@ async def main() -> None:
     for item in resp.data:
         print(f"{item.id} | {item.display_name}")
         print(item.__dict__.items())
-        
-    
+         
         rsp = await apicaller.GetCheermotes(item.id)
         for item in rsp.data:
             print(item.__dict__.items())
