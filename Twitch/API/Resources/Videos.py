@@ -21,12 +21,12 @@ class GetVideosRequest(Utils.RequestBaseClass):
         self.before = before
         super().__init__()
 
-@dataclass
+
 class MutedSegment:
     duration: int
     offset: int
 
-@dataclass
+
 class VideoItem:
     id: str
     stream_id: str
@@ -64,7 +64,7 @@ class DeleteVideosRequest(Utils.RequestBaseClass):
             id = ids       
         super().__init__()
 
-@dataclass
+
 class DeleteVideoItem:
      id: str
 class DeleteVideosResponse(Utils.ResponseBaseClass):

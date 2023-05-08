@@ -1,32 +1,7 @@
 from Twitch.API.Resources.__imports import *
 
-
 """
 Start Commercial
-
-request:
-
-curl -X POST 'https://api.twitch.tv/helix/channels/commercial' \
--H 'Authorization: Bearer 2gbdx6oar67tqtcmt49t3wpcgycthx' \
--H 'Client-Id: wbmytr93xzw8zbg0p1izqyzzc5mbiz' \
--H 'Content-Type: application/json' \
---data-raw '{
-  "broadcaster_id": "41245072",
-  "length": 60
-}'
-
-response:
-
-{
-  "data": [
-    {
-      "length" : 60,
-      "message" : "",
-      "retry_after" : 480
-    }
-  ] 
-}
-
 """
 
 class StartCommercialRequest(Utils.RequestBaseClass):

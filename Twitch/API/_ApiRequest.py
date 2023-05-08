@@ -1,16 +1,13 @@
 from http import HTTPMethod
-from typing import Coroutine, Optional,Callable
-import asyncio
-import aiohttp
-import json
-from aiohttp import ClientResponse, web
-from Twitch.CallbackServer import CallbackServer
+from typing import Optional
+import asyncio, aiohttp
+from aiohttp import ClientResponse
 
 class APIRequest():
     def __init__(self, apiURL:str) -> None:
         self._seesion = aiohttp.ClientSession() 
         self._apiURL = apiURL
-        self._RequestFunc: dict[HTTPMethod, Callable] = {
+        self._RequestFunc: dict = {
             HTTPMethod.DELETE : self._seesion.delete,
             HTTPMethod.GET : self._seesion.get,
             HTTPMethod.PATCH : self._seesion.patch,
@@ -24,4 +21,5 @@ class APIRequest():
                 return response
     
     async def close(self):
+           await asyncio.sleep(0)
            await self._seesion.close()
