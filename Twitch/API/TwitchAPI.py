@@ -21,12 +21,10 @@ class Credentials:
 class twitchAPI:
     def __init__(self, clientCreds: Credentials, userCreds:Credentials) -> None:
         self.APIconnector = APIRequest("https://api.twitch.tv/helix")
-
         self._credentials:dict[Utils.AuthRequired, Credentials] = {
             Utils.AuthRequired.CLIENT: clientCreds,
             Utils.AuthRequired.USER : userCreds,
         }
-
         self._APIReqestFailedExcptions: dict = {
             Utils.HTTPStatus.BAD_REQUEST : TwitchApiBadRequstException,
             Utils.HTTPStatus.UNAUTHORIZED : TwitchApiUnauthorizedException,
@@ -60,8 +58,6 @@ class twitchAPI:
         Raises APIReqestFailedException(APIresponse)
         Raises TwitchApiIvalidUserScope
         """
-
-        
         if request.authorization==Utils.AuthRequired.USER and request.scope is not None and request.scope not in self._credentials[Utils.AuthRequired.USER].scopes:
             raise TwitchApiIvalidUserScope("User doesn't have required scope!")    
         

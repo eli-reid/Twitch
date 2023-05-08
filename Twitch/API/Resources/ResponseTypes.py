@@ -114,3 +114,4 @@ from Twitch.API.Resources.Users import GetUsersRequest,\
 from Twitch.API.Resources.Videos import GetVideosResponse,\
                                 DeleteVideosResponse
 from Twitch.API.Resources.Whispers import SendWhisperResponse
+
