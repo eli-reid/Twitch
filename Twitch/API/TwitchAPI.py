@@ -40,7 +40,7 @@ class twitchAPI:
     
     def _getParams(self, request: RequestBaseClass) -> list[tuple]:
         """
-            turns request class variables into a list of tuples contains key/value pairs if variables are not None
+        turns request class variables into a list of tuples contains key/value pairs if variables are not None
         """
         params = list()
         for key, value in request.__dict__.items():
@@ -67,9 +67,10 @@ class twitchAPI:
             'Client-Id': self._credentials[Utils.AuthRequired.CLIENT].id
         }
 
-        APIresponse: ClientResponse = await self.APIconnector.request(request.endPoint,request.requestType,headers=headers ,params=self._getParams(request))
+        APIresponse: ClientResponse = await self.APIconnector.request(request.endPoint, request.requestType, headers=headers, params=self._getParams(request))
         if APIresponse.status in self._ApiRequestSuccess:
             response.raw = await APIresponse.json()
+            response.status = APIresponse.status
             for key, value in response.raw.items():
                     response.__setattr__(key, value)
             return

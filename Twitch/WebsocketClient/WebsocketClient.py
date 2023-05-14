@@ -70,10 +70,10 @@ class WebsocketClient:
         self._autoReconnect = True
 
     async def _consumerHandler(self):
-            async for message in self._connection:
-                self.events.emit(self, self.EVENTENUM.MESSAGE, message)
-                await self._consumer(message)
-                await asyncio.sleep(0)
+        async for message in self._connection:
+            self.events.emit(self, self.EVENTENUM.MESSAGE, message)
+            await self._consumer(message)
+            await asyncio.sleep(0)
                 
     async def _producerHandler(self):
         while True:
