@@ -51,6 +51,7 @@ class ResponseBaseClass:
     dataitemtype = None
     def __init__(self, dataItem:object) -> None:
         self.raw: str = None
+        self.status: str = None
         self._dataItem = dataItem
         self.dataitemtype = dataItem 
         self._dataList: list[self._dataItem] = []
