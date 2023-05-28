@@ -1,3 +1,25 @@
 [build-system]
 requires = ['setuptools>=42']
 build-backend = 'setuptools.build_meta'
+
+[project]
+name = "Twitch_edog0049a"
+version = "0.0.01"
+authors = [
+  { name="Eli Reid", email="EliR@Elireid.com" },
+]
+description = "Twitch library for chat, api, pubs, and eventsub"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    ]
+[project_urls]
+    "Bug Tracker" = "https://github.com/eli-reid/twitch/-/issues"
+    "repository" = "https://github.com/eli-reid/twitch"
+[options]
+python_requires = ">=3.10"
+
+[options.packages.find]
+where = "Twitch"
