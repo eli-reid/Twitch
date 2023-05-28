@@ -1,3 +1,3 @@
 # `Twitch`
 
-api wrraper with chat pubsub and event connectorsss
+api wrraper with chat pubsub and event connectors
