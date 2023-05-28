@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from enum import Enum
 from http import HTTPMethod, HTTPStatus
-from Twitch.API.Resources import Scope
+from Twitch import Scope
 
 class AuthRequired(Enum):
     USER = "user access token"
