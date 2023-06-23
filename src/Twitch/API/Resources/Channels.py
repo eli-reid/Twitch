@@ -8,11 +8,10 @@ class GetChannelInformationRequest(Utils.RequestBaseClass):
     scope = None
     authorization = Utils.AuthRequired.CLIENT
     endPoint = "/channels"
-    def __init__(self, broadcaster_ids: list[str], userAuth: bool=False) -> None:
+    def __init__(self, broadcaster_id: str, userAuth: bool=False) -> None:
         if userAuth:
             self.authorization = Utils.AuthRequired.USER
-  
-        self.broadcaster_ids: list[str] = broadcaster_ids
+        self.broadcaster_id = broadcaster_id
         super().__init__()
 
 class ChannelInformationItem:
@@ -48,6 +47,7 @@ class ModifyChannelInformationRequest(Utils.RequestBaseClass):
                  delay:Optional[int]=None,
                  tags:Optional[list[str]]=None
                  ) -> None:
+        
         self.broadcaster_id = broadcaster_id
         self.game_id = game_id
         self.broadcaster_language = broadcaster_language
@@ -92,7 +92,7 @@ class GetFollowedChannelsRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.GET
     scope = Scope.User.Read.Follows
     authorization = Utils.AuthRequired.USER
-    endPoint ="channels/followed"
+    endPoint ="/channels/followed"
     def __init__(self, user_id: str, 
                  broadcaster_id: Optional[str]=None, 
                  first: Optional[int]=None, 

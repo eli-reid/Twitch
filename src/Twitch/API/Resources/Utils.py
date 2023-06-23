@@ -6,6 +6,7 @@ from Twitch import Scope
 class AuthRequired(Enum):
     USER = "user access token"
     CLIENT = "app access token"
+    JTW = "jwt token"
 
 
 @dataclass
