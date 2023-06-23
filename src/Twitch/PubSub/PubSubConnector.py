@@ -1,12 +1,13 @@
-from ..WebsocketClient.WebsocketClient import WebsocketClient
 import json
+from Twitch.WebsocketClient.WebsocketClient import WebsocketClient
+from queue import Queue
 
 class TopicTracker:
     pass
 
 class PubSubConnector:
-    def __init__(self,topics:list ) -> None:
-        self.messageQ : list = []
+    def __init__(self, topics: list) -> None:
+        self.messageQ: Queue = Queue()
         self._socketClient = WebsocketClient("wss://pubsub-edge.twitch.tv",
                                             self._messageConsumer, self._messageSender)
         self._socketClient.events.on(self._socketClient.EVENTENUM.CONNECTED)
@@ -15,8 +16,8 @@ class PubSubConnector:
         messageData = json.loads(message)
 
     async def _messageSender(self):
-        if len(self.messageQ)>0:
-            return self.messageQ.pop()
+        if self.messageQ.not_empty:
+            return self.messageQ.get()
         
     async def connect(self):
         self._socketClient.connect()

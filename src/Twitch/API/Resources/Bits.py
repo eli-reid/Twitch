@@ -45,7 +45,7 @@ class GetCheermotesRequest(Utils.RequestBaseClass):
     scope = None
     authorization = Utils.AuthRequired.CLIENT 
     endPoint = "/bits/cheermotes"
-    def __init__(self,broadcaster_id:Optional[str] = None, userAuth: bool=False) -> None:
+    def __init__(self, broadcaster_id:Optional[str] = None, userAuth: bool=False) -> None:
         if userAuth:
             self.authorization = Utils.AuthRequired.USER
 

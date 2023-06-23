@@ -1,5 +1,5 @@
 import json
-from ..Resources.Utils import ResponseBaseClass
+from Twitch.API.Resources.Utils import ResponseBaseClass
 
 def twitchAPICall( request:str, response:ResponseBaseClass) -> None:
         APIresponse:dict = json.loads(request)

@@ -7,11 +7,12 @@ from enum import Enum
 class WebsocketClient:
     TIMERDEFAULT =.1
     class EVENTENUM():
-        CONNECTED = "1"
-        DISCONNECTED = "2"
-        RECONNECTED = "3"
-        RECONNECTING = "4"
-        MESSAGE = "5"
+        CONNECTED = 1
+        DISCONNECTED = 2
+        RECONNECTED = 3
+        RECONNECTING = 4
+        MESSAGE = 5
+        MESSAGEFAIL = 6
 
     def __init__(self, url: str, consumer: Awaitable, producer: Awaitable, autoReconnect:bool = True, maxRetries: Optional[int] = -1) -> None:
         self.events: EventHandler = EventHandler
@@ -22,6 +23,7 @@ class WebsocketClient:
         self._autoReconnect: bool = autoReconnect
         self._reconnectTimer: float = self.TIMERDEFAULT
         self._retries: int = maxRetries
+        self._messageFailed: bool = False
         self.loop: asyncio.AbstractEventLoop = asyncio.new_event_loop()
 
     def disconnect(self):
@@ -51,7 +53,7 @@ class WebsocketClient:
             if self._autoReconnect:
                 await self.reconnect()
 
-    async def reconnect(self):
+    async def reconnect(self) -> bool:
         triesLeft = self._retries
         while self._autoReconnect and triesLeft!=0:
             try: 
@@ -59,9 +61,11 @@ class WebsocketClient:
                 await asyncio.sleep(self._reconnectTimer)
                 self._reconnectTimer = self._reconnectTimer * 2
                 await self._connect()
+                return True
             except Exception as e:
                 if triesLeft > 0:
                     triesLeft -= 1
+        return False        
             
     def stopReconnect(self): 
         self._autoReconnect = False
@@ -82,5 +86,13 @@ class WebsocketClient:
                 try:
                     await self._connection.send(message)
                 except websockets.ConnectionClosed:
-                    await self.reconnect()
+                    if await self.reconnect():
+                        while not self._connection.open: 
+                            await asyncio.sleep(0)
+                        await self._connection.send(message)
+                    else:
+                        self.events.emit(self, self.EVENTENUM.MESSAGEFAIL, message)
             await asyncio.sleep(0)
+
+   
+   

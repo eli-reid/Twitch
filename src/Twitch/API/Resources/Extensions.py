@@ -1,26 +1,43 @@
 from Twitch.API.Resources.__imports import *
 
 class GetExtensionConfigurationSegmentRequest(Utils.RequestBaseClass):
-        requestType = Utils.HTTPMethod.POST
-        scope = Scope.Channel.Manage.Redemptions
-        authorization = Utils.AuthRequired.USER
-        endPoint ="//channel_points//custom_rewards"
-    
+        requestType = Utils.HTTPMethod.GET
+        scope = None
+        authorization = Utils.AuthRequired.JTW
+        endPoint ="/extensions/configurations"
+        def __init__(self,extension_id: str, segment: str, broadcaster_id: Optional[str]=None) -> None:
+            self.extension_id = extension_id        
+            self.segment = segment
+            self.broadcaster_id = broadcaster_id
+            super().__init__()
+
+class GetExtensionConfigurationSegmentItem:
+    broadcaster_id: str
+    segment: str
+    version: str
+    content: str 
 
 class GetExtensionConfigurationSegmentResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
-            super().__init__()
+            super().__init__(GetExtensionConfigurationSegmentItem)
 
 class SetExtensionConfigurationSegmentRequest(Utils.RequestBaseClass):
-        requestType = Utils.HTTPMethod.POST
-        scope = Scope.Channel.Manage.Redemptions
-        authorization = Utils.AuthRequired.USER
-        endPoint ="//channel_points//custom_rewards"
+        requestType = Utils.HTTPMethod.PUT
+        scope = None
+        authorization = Utils.AuthRequired.JTW
+        endPoint ="/extensions/configurations"
+        def __init__(self, extension_id: str, segment: str, broadcaster_id: Optional[str]=None, content: Optional[str]=None, version: Optional[str]=None) -> None:
+            self.extension_id = extension_id
+            self.segment = segment
+            self.broadcaster_id = broadcaster_id
+            self.content = content
+            self.version = version
+            super().__init__()
     
 
 class SetExtensionConfigurationSegmentResponse(Utils.ResponseBaseClass):
         def __init__(self) -> None:
-            super().__init__()
+            super().__init__(None)
 
 class SetExtensionRequiredConfigurationRequest(Utils.RequestBaseClass):
         requestType = Utils.HTTPMethod.POST
