@@ -5,7 +5,7 @@ class GetUsersRequest(Utils.RequestBaseClass):
     scope = Scope.User.Read.Email
     authorization = Utils.AuthRequired.CLIENT
     endPoint ="/users"
-    def __init__(self, id:Optional[str|list] = None, login: Optional[str|list]=None) -> None:
+    def __init__(self, id: Optional[str|list] = None, login: Optional[str|list]=None) -> None:
             self.id =   id  
             self.login = login
             super().__init__()
@@ -33,6 +33,7 @@ class UpdateUserRequest(Utils.RequestBaseClass):
     authorization = Utils.AuthRequired.USER
     endPoint ="/users"
     def __init__(self, description: str) -> None:
+        self.description = description
         super().__init__()
 
 
