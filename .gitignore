@@ -5,3 +5,4 @@ __pycache__
 apikeys.py
 BuildPackage.bat
 .pypirc
+.secret
