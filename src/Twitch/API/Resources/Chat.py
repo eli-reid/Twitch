@@ -19,6 +19,7 @@ class ChatterItem:
     user_id: str 
     user_login: str 
     user_name: str 
+    
 class GetChattersResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
     total: int
     def __init__(self) -> None:

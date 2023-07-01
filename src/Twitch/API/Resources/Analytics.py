@@ -111,6 +111,7 @@ class GameAnalyticsItem(Utils.DateRangeMixin):
         self.game_id:str
         self.URL:str
         self.type:str
+        
 class GetGameAnalyticsResponse(Utils.PagenationMixin, Utils.ResponseBaseClass):
     def __init__(self) -> None:
         super().__init__(GameAnalyticsItem)

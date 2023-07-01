@@ -2,7 +2,7 @@ import queue
 import time
 import threading
 from typing import Callable
-from Twitch.EventHandler.EventHandler import EventHandler as _Events
+from EventHandler import EventHandler as _Events
 from Twitch.ChatInterface.IrcController import IrcController
 from Twitch.ChatInterface.MessageHandler import *
 from Twitch.ChatInterface.TokenBucket import TokenBucket

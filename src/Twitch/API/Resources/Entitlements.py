@@ -33,7 +33,6 @@ class GetDropsEntitlementsResponse(Utils.pagenation, Utils.ResponseBaseClass):
     def __init__(self) -> None:
         super().__init__(GetDropsEntitlementsItem)
 
-
 class UpdateDropsEntitlementsRequest(Utils.RequestBaseClass):
     requestType = Utils.HTTPMethod.PATCH
     scope = None

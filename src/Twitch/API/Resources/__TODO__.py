@@ -1,0 +1,31 @@
+"""
+TODO: Implement Twitch API Resources
+
+    - Implement the following resources:
+        - Ads               (DONE)
+        - Analytics         (DONE)
+        - Bits              (DONE)
+        - Channel Points    (DONE)
+        - Channels          (DONE)
+        - Chat              (DONE)
+        - Clips             (DONE)
+        - Entitlements      (DONE)
+        - EventSub          (DONE)
+        - Extensions        (IN PROGRESS)
+        - Games             (DONE)
+        - HypeTrain         (DONE)
+        - Moderation        (DONE)
+        - Music             (NOT STARTED)
+        - Polls             (DONE)
+        - Predictions       (NOT STARTED)
+        - Raids             (NOT STARTED)
+        - Schedule          (NOT STARTED)
+        - Search            (NOT STARTED)
+        - Streams           (NOT STARTED)
+        - Subscriptions     (NOT STARTED)
+        - Tags              (NOT STARTED)
+        - Teams             (NOT STARTED)
+        - Users             (IN PROGRESS)
+        - Videos            (DONE)
+        - Whisperes         (DONE)
+"""
