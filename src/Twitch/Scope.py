@@ -1,6 +1,5 @@
 from collections.abc import Iterable
 
-
 class _Analytics:
     class _Read:
         
